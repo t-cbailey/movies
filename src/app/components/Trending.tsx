@@ -1,27 +1,19 @@
 import React from "react";
-import api from "../../../utils/axios/axiosConfig";
-import MovieCard from "./MovieCard";
-import { Movie } from "@/types";
+import { Prog } from "@/types";
+import ProgCarousel from "../components/ProgCarousel";
+import { getProgData } from "@/utils/getData";
 
 export default async function Trending() {
-  const getTrendingMovies = await api.get("trending/all/day?language=en-US");
-  const { data } = getTrendingMovies;
-  const { results } = data;
-
+  const trendingMovies: Prog[] = await getProgData("trending/movie/day");
+  const trendingTV: Prog[] = await getProgData("trending/tv/day");
+  const popularTV: Prog[] = await getProgData("tv/top_rated");
+  const popularMovies: Prog[] = await getProgData("movie/top_rated");
   return (
-    <article className="mt-50">
-      <h1>Featured</h1>
-      <ul className="flex flex-row">
-        {results.map((movie: Movie) => {
-          return (
-            <>
-              <li key={movie.name}>
-                <MovieCard movie={movie} />
-              </li>
-            </>
-          );
-        })}
-      </ul>
-    </article>
+    <>
+      <ProgCarousel progArr={trendingMovies} heading={"Trending Movies"} />
+      <ProgCarousel progArr={trendingTV} heading={"Trending TV"} />
+      <ProgCarousel progArr={popularTV} heading={"Popular Movies"} />
+      <ProgCarousel progArr={popularMovies} heading={"Popular TV"} />
+    </>
   );
 }

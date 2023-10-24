@@ -1,11 +1,12 @@
-import getMovies from "../../lib/getMovies";
-import Featured from "./components/Trending";
+import React from "react";
+import "../../style.css";
+import Trending from "./components/Trending";
+export const revalidate = 86400;
 
 export default async function Home() {
   return (
     <>
-      <h1 className="text-center mt-24 text-3xl">Home</h1>
-      <Featured />
+      <Trending />
     </>
   );
 }

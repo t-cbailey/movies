@@ -1,6 +1,6 @@
 import { StdioNull } from "child_process";
 
-type Movie = {
+type Prog = {
   adult: boolean;
   backdrop_path: string;
   id: number;
