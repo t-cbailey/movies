@@ -9,9 +9,9 @@ import "swiper/css/free-mode";
 import PosterCard from "./PosterCard";
 import { Prog } from "@/types";
 
-type Props = { progArr: Prog[]; heading: string; type: "tv" | "movie" };
+type Props = { progArr: Prog[]; heading: string };
 
-export default function ProgCarousel({ progArr, heading, type }: Props) {
+export default function ProgCarousel({ progArr, heading }: Props) {
   return (
     <>
       <section className="mt-24 mx-10">
@@ -38,7 +38,7 @@ export default function ProgCarousel({ progArr, heading, type }: Props) {
                   key={prog.id}
                   className="text-black text-center text-xl bg-black flex justify-center items-center "
                 >
-                  <PosterCard prog={prog} type={type} />
+                  <PosterCard prog={prog} />
                 </SwiperSlide>
               )
             );

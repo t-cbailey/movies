@@ -1,4 +1,4 @@
-import api from "./axios/axiosConfig";
+import api from "../utils/axios/axiosConfig";
 
 export const getProgData = async (path: string, progType?: string) => {
   const fetchData = api.get(path).catch(function (error) {

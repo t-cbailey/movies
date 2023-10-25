@@ -1,19 +1,34 @@
 import React from "react";
 import { Prog } from "@/types";
 import ProgCarousel from "../components/ProgCarousel";
-import { getProgData } from "@/utils/getData";
+import { getProgData } from "@/lib/getData";
+import { addProgType } from "@/utils/addProgType/addProgType";
 
 export default async function Trending() {
-  const discoverMovies: Prog[] = await getProgData("discover/movie");
-  const discoverTV: Prog[] = await getProgData("discover/tv");
-  const trendingMovies: Prog[] = await getProgData("trending/movie/day");
-  const popularMovies: Prog[] = await getProgData("movie/top_rated");
-  const trendingTV: Prog[] = await getProgData("trending/tv/day");
-  const popularTV: Prog[] = await getProgData("tv/top_rated");
+  // const discoverMovies: Prog[] = await getProgData("discover/movie");
+  // const discoverTV: Prog[] = await getProgData("discover/tv");
+  // const trendingMovies: Prog[] = await getProgData("trending/movie/day");
+  // const popularMovies: Prog[] = await getProgData("movie/top_rated");
+  // const trendingTV: Prog[] = await getProgData("trending/tv/day");
+  // const popularTV: Prog[] = await getProgData("tv/top_rated");
 
-  const discover = [...discoverMovies, ...discoverTV];
+  const [discoverMovies, trendingMovies, popularMovies] = [
+    await getProgData("discover/movie"),
+    await getProgData("trending/movie/day"),
+    await getProgData("movie/top_rated"),
+  ].map((arr) => {
+    return addProgType(arr, "movie");
+  });
 
-  discover.sort((a, b) => {
+  const [discoverTV, trendingTV, popularTV] = [
+    await getProgData("discover/tv"),
+    await getProgData("trending/tv/day"),
+    await getProgData("tv/top_rated"),
+  ].map((arr) => {
+    return addProgType(arr, "tv");
+  });
+
+  let discover = [...discoverMovies, ...discoverTV].sort((a, b) => {
     if (a.vote_average > b.vote_average) {
       return -1;
     }
@@ -24,19 +39,11 @@ export default async function Trending() {
 
   return (
     <>
-      <ProgCarousel progArr={discover} heading={"Discover"} type={"movie"} />
-      <ProgCarousel
-        progArr={trendingMovies}
-        heading={"Trending Movies"}
-        type={"movie"}
-      />
-      <ProgCarousel
-        progArr={popularMovies}
-        heading={"Popular Movies"}
-        type={"movie"}
-      />
-      <ProgCarousel progArr={trendingTV} heading={"Trending TV"} type={"tv"} />
-      <ProgCarousel progArr={popularTV} heading={"Popular TV"} type={"tv"} />
+      <ProgCarousel progArr={discover} heading={"Discover"} />
+      <ProgCarousel progArr={trendingMovies} heading={"Trending Movies"} />
+      <ProgCarousel progArr={popularMovies} heading={"Popular Movies"} />
+      <ProgCarousel progArr={trendingTV} heading={"Trending TV"} />
+      <ProgCarousel progArr={popularTV} heading={"Popular TV"} />
     </>
   );
 }

@@ -17,4 +17,10 @@ type Prog = {
   vote_count: number;
   origin_country: string[];
   title: string;
+  type: string;
+};
+
+type Genre = {
+  id: number;
+  name: string;
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { getProgData } from "@/utils/getData";
+import { getProgData } from "@/lib/getData";
 import { Prog } from "@/types";
 import Image from "next/image";
 import generateImgUrl from "@/utils/images/generateImgUrl";

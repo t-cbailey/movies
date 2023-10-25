@@ -3,10 +3,12 @@ import { Prog } from "@/types";
 import generateImgUrl from "@/utils/images/generateImgUrl";
 import Image from "next/image";
 import Link from "next/link";
-type Props = { prog: Prog; type: "movie" | "tv" };
+type Props = { prog: Prog };
 
-export default function PosterCard({ prog, type }: Props) {
+export default function PosterCard({ prog }: Props) {
   const imgUrl = generateImgUrl(200, prog.poster_path);
+
+  const { type } = prog;
 
   return (
     <>
