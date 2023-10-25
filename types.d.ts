@@ -16,4 +16,5 @@ type Prog = {
   vote_average: number;
   vote_count: number;
   origin_country: string[];
+  title: string;
 };

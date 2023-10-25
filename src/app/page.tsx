@@ -6,7 +6,9 @@ export const revalidate = 86400;
 export default async function Home() {
   return (
     <>
-      <Trending />
+      <section>
+        <Trending />
+      </section>
     </>
   );
 }
