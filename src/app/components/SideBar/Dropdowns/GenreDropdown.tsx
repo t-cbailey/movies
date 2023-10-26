@@ -10,6 +10,7 @@ export default function GenreDropdown({ genres }: Props) {
   const itemClasses = {
     title: "font-normal text-orange-600 hover:text-orange-300",
   };
+
   return (
     <Accordion itemClasses={itemClasses}>
       <AccordionItem key="1" aria-label="Movies" title="Movies">
@@ -18,7 +19,7 @@ export default function GenreDropdown({ genres }: Props) {
             return (
               <li className="hover:text-orange-200">
                 <Link
-                  href={`/genres/movie/${genre.name}`}
+                  href={`/genres/movie/${genre.name.replaceAll(" ", "_")}`}
                 >{` ${genre.name}`}</Link>
               </li>
             );
@@ -31,7 +32,7 @@ export default function GenreDropdown({ genres }: Props) {
             return (
               <li className="hover:text-orange-200">
                 <Link
-                  href={`/genres/movie/${genre.name}`}
+                  href={`/genres/tv/${genre.name.replaceAll(" ", "_")}`}
                 >{` ${genre.name}`}</Link>
               </li>
             );

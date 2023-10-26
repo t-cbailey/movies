@@ -11,9 +11,7 @@ export function Navbar() {
     setInput(value);
   };
 
-  const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = async (
-    e
-  ) => {};
+  const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = (e) => {};
 
   return (
     <nav className="flex flex-row top-0 fixed w-screen justify-around border-b border-slate-800 items-center z-50 bg-black">
