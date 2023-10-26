@@ -2,16 +2,21 @@
 
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function Navbar() {
   const [input, setInput] = React.useState("");
+  const router = useRouter();
 
   const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const value = e.target.value;
     setInput(value);
   };
 
-  const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = (e) => {};
+  const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    router.push(`/search/${input}`);
+  };
 
   return (
     <nav className="flex flex-row top-0 fixed w-screen justify-around border-b border-slate-800 items-center z-50 bg-black">
