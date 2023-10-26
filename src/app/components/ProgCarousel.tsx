@@ -14,8 +14,10 @@ type Props = { progArr: Prog[]; heading: string };
 export default function ProgCarousel({ progArr, heading }: Props) {
   return (
     <>
-      <section className="mt-24 mx-10">
-        <h1>{heading}</h1>
+      <section className="mt-12 mx-10">
+        <h3 className="text-orange-400 border-l-4 pl-2 border-orange-100 text-xl font-light">
+          {heading}
+        </h3>
         <Swiper
           loop={true}
           slidesPerView={5}

@@ -11,18 +11,15 @@ export default async function PageByGenre({ params: { name, type } }: Props) {
   const genreList = await getGenres();
   const mediaType = type as keyof typeof genreList;
   const genreArr: Genre[] = genreList[mediaType];
-
   const genreObj = genreArr.filter((genre) => {
     return genre.name === name;
   });
-
   const genreId = genreObj[0]?.id;
-
-  if (!genreObj[0]) return <h2 className="mt-24">Nothing found</h2>;
-
   const progs: Prog[] = await getProgData(
     `/discover/${type}?with_genres=${genreId}`
   );
+
+  if (!genreObj[0]) return <h2 className="mt-24">Nothing found</h2>;
 
   return (
     <>

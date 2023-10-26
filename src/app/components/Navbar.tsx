@@ -18,7 +18,7 @@ export function Navbar() {
   return (
     <nav className="flex flex-row top-0 fixed w-screen justify-around border-b border-slate-800 items-center z-50 bg-black">
       <Link href="/">
-        <h1 className="text-white text-3xl mx-5 my-4">TMD</h1>
+        <h1 className="text-orange-400 text-3xl mx-5 my-4 border p-1">TMD</h1>
       </Link>
       <form className="my-2 ">
         <input

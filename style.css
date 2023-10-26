@@ -3,11 +3,11 @@
 }
 
 :root {
-  --swiper-pagination-color: white;
+  --swiper-pagination-color: orange;
   --swiper-pagination-bullet-size: 8px;
   --swiper-pagination-bullet-width: 8px;
   --swiper-pagination-bullet-height: 8px;
-  --swiper-pagination-bullet-inactive-color: white;
+  --swiper-pagination-bullet-inactive-color: rgb(255, 221, 158);
   --swiper-pagination-bullet-inactive-opacity: 0.2;
   --swiper-pagination-bullet-opacity: 1;
   --swiper-pagination-bullet-horizontal-gap: 4px;

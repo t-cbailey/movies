@@ -5,13 +5,6 @@ import { getProgData } from "@/lib/getData";
 import { addProgType } from "@/utils/addProgType/addProgType";
 
 export default async function Trending() {
-  // const discoverMovies: Prog[] = await getProgData("discover/movie");
-  // const discoverTV: Prog[] = await getProgData("discover/tv");
-  // const trendingMovies: Prog[] = await getProgData("trending/movie/day");
-  // const popularMovies: Prog[] = await getProgData("movie/top_rated");
-  // const trendingTV: Prog[] = await getProgData("trending/tv/day");
-  // const popularTV: Prog[] = await getProgData("tv/top_rated");
-
   const [discoverMovies, trendingMovies, popularMovies] = [
     await getProgData("discover/movie"),
     await getProgData("trending/movie/day"),
