@@ -15,7 +15,7 @@ export function Navbar() {
 
   const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
-    router.push(`/search/${input}`);
+    input.length < 1 ? router.push(`/`) : router.push(`/search/${input}`);
   };
 
   return (

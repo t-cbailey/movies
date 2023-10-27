@@ -1,13 +1,17 @@
 import React from "react";
-import { getProgData } from "@/lib/getData";
-import { Prog } from "@/types";
+import { getTvData } from "@/lib/getData";
+import { Prog, Tv } from "@/types";
 import Image from "next/image";
 import generateImgUrl from "@/utils/images/generateImgUrl";
 
 type Props = { params: { id: string } };
 
 export default async function SingleProg({ params: { id } }: Props) {
-  const prog: Prog = await getProgData(`tv/${id}`);
+  const prog = await getTvData(`/tv/${id}`, "tv");
+
+  if (!prog) {
+    return "nothing found";
+  }
   const imgUrl = generateImgUrl(200, prog.poster_path);
   return (
     <div className="mt-24 text white">

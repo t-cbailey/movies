@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import PosterCard from "./PosterCard";
-import { Prog } from "@/types";
+import { Prog, ProgType } from "@/types";
 
 type Props = { progArr: Prog[]; heading: string };
 
@@ -35,14 +35,12 @@ export default function ProgCarousel({ progArr, heading }: Props) {
         >
           {progArr.map((prog: Prog) => {
             return (
-              prog.poster_path && (
-                <SwiperSlide
-                  key={prog.id}
-                  className="text-black text-center text-xl bg-black flex justify-center items-center "
-                >
-                  <PosterCard prog={prog} />
-                </SwiperSlide>
-              )
+              <SwiperSlide
+                key={prog.id}
+                className="text-black text-center text-xl bg-black flex justify-center items-center "
+              >
+                <PosterCard prog={prog} />
+              </SwiperSlide>
             );
           })}
         </Swiper>

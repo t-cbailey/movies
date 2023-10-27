@@ -1,25 +1,21 @@
 import React from "react";
-import { Prog } from "@/types";
+import { Movie, Prog, Tv } from "@/types";
 import ProgCarousel from "../components/ProgCarousel";
-import { getProgData } from "@/lib/getData";
+import { getMovieData, getTvData, getPersonData } from "@/lib/getData";
 import { addProgType } from "@/utils/addProgType/addProgType";
 
 export default async function Trending() {
-  const [discoverMovies, trendingMovies, popularMovies] = [
-    await getProgData("discover/movie"),
-    await getProgData("trending/movie/day"),
-    await getProgData("movie/top_rated"),
-  ].map((arr) => {
-    return addProgType(arr, "movie");
-  });
+  const [discoverMovies, trendingMovies, popularMovies]: Movie[][] = [
+    await getMovieData("discover/movie", "movie"),
+    await getMovieData("trending/movie/day", "movie"),
+    await getMovieData("movie/top_rated", "movie"),
+  ];
 
-  const [discoverTV, trendingTV, popularTV] = [
-    await getProgData("discover/tv"),
-    await getProgData("trending/tv/day"),
-    await getProgData("tv/top_rated"),
-  ].map((arr) => {
-    return addProgType(arr, "tv");
-  });
+  const [discoverTV, trendingTV, popularTV]: Tv[][] = [
+    await getTvData("discover/tv", "tv"),
+    await getTvData("trending/tv/day", "tv"),
+    await getTvData("tv/top_rated", "tv"),
+  ];
 
   let discover = [...discoverMovies, ...discoverTV].sort((a, b) => {
     if (a.vote_average > b.vote_average) {

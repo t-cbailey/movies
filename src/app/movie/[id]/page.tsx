@@ -1,13 +1,13 @@
 import React from "react";
-import { getProgData } from "@/lib/getData";
-import { Prog } from "@/types";
+import { getMovieData } from "@/lib/getData";
+import { Movie, Prog } from "@/types";
 import Image from "next/image";
 import generateImgUrl from "@/utils/images/generateImgUrl";
 
 type Props = { params: { id: string } };
 
 export default async function SingleProg({ params: { id } }: Props) {
-  const prog: Prog = await getProgData(`movie/${id}`);
+  const prog: Movie = await getMovieData(`movie/${id}`, "movie");
 
   if (!prog) {
     return <p className="mt-24">Content for id:{id} Not Found</p>;
@@ -19,7 +19,7 @@ export default async function SingleProg({ params: { id } }: Props) {
       <h1>{prog.title}</h1>
       <Image
         src={imgUrl}
-        alt={prog.name || "programme poster"}
+        alt={prog.title || "programme poster"}
         width={200}
         height={300}
       />
