@@ -15,6 +15,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      maxWidth: { posterCard: "200px" },
     },
     screens: {
       s: { min: "300px", max: "1023px" },
