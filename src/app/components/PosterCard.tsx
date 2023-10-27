@@ -10,8 +10,6 @@ import fallbackImg from "../../../public/fallbackImg.png";
 export default function PosterCard({ prog }: Props) {
   const { type } = prog;
 
-  console.log(type);
-
   const imgUrl = generateImgUrl(
     200,
     type === "person" ? prog.profile_path : prog.poster_path

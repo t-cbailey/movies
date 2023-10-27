@@ -7,21 +7,17 @@ import generateImgUrl from "@/utils/images/generateImgUrl";
 type Props = { params: { id: string } };
 
 export default async function SingleProg({ params: { id } }: Props) {
-  const prog = await getTvData(`/tv/${id}`, "tv");
+  const progData = await getTvData(`/tv/${id}`, "tv");
+  const prog: Tv = progData[0];
 
   if (!prog) {
-    return "nothing found";
+    return <h2 className="mt-24">Nothing found</h2>;
   }
   const imgUrl = generateImgUrl(200, prog.poster_path);
   return (
     <div className="mt-24 text white">
-      <h1>{prog.title}</h1>
-      <Image
-        src={imgUrl}
-        alt={prog.name || "programme poster"}
-        width={200}
-        height={300}
-      />
+      <h1>{prog.name}</h1>
+      <Image src={imgUrl} alt={prog.name} width={200} height={300} />
     </div>
   );
 }

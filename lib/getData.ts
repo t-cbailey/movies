@@ -14,6 +14,7 @@ export const getMovieData = async (
   const res = await fetchData;
 
   if (res && res.data.results) return addProgType(res.data.results, progType);
+  else if (res) return addProgType([res.data], progType);
 };
 
 export const getTvData = async (
@@ -28,6 +29,7 @@ export const getTvData = async (
   const res = await fetchData;
 
   if (res && res.data.results) return addProgType(res.data.results, progType);
+  else if (res) return addProgType([res.data], progType);
 };
 
 export const getPersonData = async (path: string, progType: ProgType) => {
@@ -39,4 +41,5 @@ export const getPersonData = async (path: string, progType: ProgType) => {
   const res = await fetchData;
 
   if (res && res.data.results) return addProgType(res.data.results, progType);
+  else if (res) return addProgType([res.data], progType);
 };

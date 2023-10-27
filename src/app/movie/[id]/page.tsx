@@ -7,7 +7,8 @@ import generateImgUrl from "@/utils/images/generateImgUrl";
 type Props = { params: { id: string } };
 
 export default async function SingleProg({ params: { id } }: Props) {
-  const prog: Movie = await getMovieData(`movie/${id}`, "movie");
+  const progData = await getMovieData(`movie/${id}`, "movie");
+  const prog: Movie = progData[0];
 
   if (!prog) {
     return <p className="mt-24">Content for id:{id} Not Found</p>;
@@ -17,12 +18,7 @@ export default async function SingleProg({ params: { id } }: Props) {
   const content = (
     <div className="mt-24 text white">
       <h1>{prog.title}</h1>
-      <Image
-        src={imgUrl}
-        alt={prog.title || "programme poster"}
-        width={200}
-        height={300}
-      />
+      <Image src={imgUrl} alt={prog.title} width={200} height={300} />
     </div>
   );
   return content;
