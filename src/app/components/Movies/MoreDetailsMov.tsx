@@ -3,6 +3,7 @@ import React from "react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { Movie } from "@/types";
 import Link from "next/link";
+import PersonCardSm from "../People/PersonCardSm";
 
 type Props = { prog: Movie };
 
@@ -13,7 +14,9 @@ export default function MoreDetailsMov({ prog }: Props) {
 
   return (
     <Accordion itemClasses={itemClasses}>
-      <AccordionItem key="1" aria-label="Cast" title="Cast"></AccordionItem>
+      <AccordionItem key="1" aria-label="Cast" title="Cast">
+        <PersonCardSm />
+      </AccordionItem>
 
       <AccordionItem key="2" aria-label="More Details" title="More Details">
         <section className="flex flex-row">
