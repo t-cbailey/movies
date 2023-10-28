@@ -20,13 +20,13 @@ export default function MoreDetailsMov({ prog }: Props) {
           <section>
             <h4 className="text-lg text-orange-600 mb-1">Studios</h4>
             <ul className="m-w-1/4">
-              {prog.production_companies.map((company) => {
+              {prog.production_companies.map((company, i) => {
                 return (
-                  <>
+                  <React.Fragment key={i}>
                     <Link href={`/studio/${company.id}`}>
                       <li className="hover:text-orange-200">{company.name}</li>
                     </Link>
-                  </>
+                  </React.Fragment>
                 );
               })}
             </ul>
