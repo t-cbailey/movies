@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import PosterCard from "./PosterCard";
 import { Prog, ProgType } from "@/types";
+import "../../../style.css";
 
 type Props = { progArr: Prog[]; heading: string };
 
