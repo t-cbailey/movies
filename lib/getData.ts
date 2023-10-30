@@ -32,7 +32,10 @@ export const getTvData = async (
   else if (res) return addProgType([res.data], progType);
 };
 
-export const getPersonData = async (path: string, progType: ProgType) => {
+export const getCastData = async (
+  path: string,
+  progType: ProgType
+): Promise<any> => {
   const fetchData = api.get(path).catch(function (error) {
     if (error.response) {
       console.log(error.toJSON());
@@ -40,6 +43,6 @@ export const getPersonData = async (path: string, progType: ProgType) => {
   });
   const res = await fetchData;
 
-  if (res && res.data.results) return addProgType(res.data.results, progType);
+  if (res && res.data.cast) return addProgType(res.data.cast, progType);
   else if (res) return addProgType([res.data], progType);
 };
