@@ -1,6 +1,6 @@
 import React from "react";
 import { Movie, Prog, Tv } from "@/types";
-import ProgCarousel from "../components/ProgCarousel";
+import ProgCarousel from "./CarouselItems/ProgCarousel";
 import { getMovieData, getTvData } from "@/lib/getData";
 import { addProgType } from "@/utils/addProgType/addProgType";
 

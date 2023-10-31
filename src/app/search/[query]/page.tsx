@@ -1,10 +1,8 @@
 import { getMovieData, getTvData, getPersonData } from "@/lib/getData";
-import { link } from "fs";
+
 import React from "react";
-import { Movie, Person, Tv } from "@/types";
-import PosterCard from "@/app/components/PosterCard";
-import { addProgType } from "@/utils/addProgType/addProgType";
-import ProgCarousel from "@/app/components/ProgCarousel";
+import PersonCarousel from "@/app/components/CarouselItems/PersonCarousel";
+import ProgCarousel from "@/app/components/CarouselItems/ProgCarousel";
 
 type Props = { params: { query: string } };
 
@@ -23,7 +21,7 @@ export default async function Search({ params: { query } }: Props) {
         <h2 className="mt-24">results for {query} </h2>
         <ProgCarousel progArr={movies} heading="Movies" />
         <ProgCarousel progArr={tv} heading="Tv" />
-        <ProgCarousel progArr={person} heading="People" />
+        <PersonCarousel personArr={person} heading="People" />
       </>
     );
   }

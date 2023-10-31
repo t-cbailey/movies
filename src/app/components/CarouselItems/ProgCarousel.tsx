@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import PosterCard from "./PosterCard";
-import { Prog, ProgType } from "@/types";
-import "../../../style.css";
+import { Prog } from "@/types";
+import "../../../../style.css";
 
 type Props = { progArr: Prog[]; heading: string };
 
@@ -34,13 +34,22 @@ export default function ProgCarousel({ progArr, heading }: Props) {
           freeMode={true}
           className="  coverflow"
         >
-          {progArr.map((prog: Prog) => {
-            return (
-              <SwiperSlide key={prog.id} className="text-black bg-black flex ">
-                <PosterCard prog={prog} />
-              </SwiperSlide>
-            );
-          })}
+          {progArr
+            .sort((a, b) => {
+              if (a.vote_average > b.vote_average) return 1;
+              if (a.vote_average < b.vote_average) return -1;
+              return 0;
+            })
+            .map((prog: Prog) => {
+              return (
+                <SwiperSlide
+                  key={prog.id}
+                  className="text-black bg-black flex "
+                >
+                  <PosterCard prog={prog} />
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </section>
     </>

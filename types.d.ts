@@ -1,7 +1,7 @@
 import { StdioNull } from "child_process";
 import { type } from "os";
 
-type Prog = Movie | Tv | Person;
+type Prog = Movie | Tv;
 
 type Movie = {
   adult: boolean;
