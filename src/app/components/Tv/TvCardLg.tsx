@@ -1,28 +1,30 @@
 import React from "react";
-import { Movie } from "@/types";
+import { Tv } from "@/types";
 import generateImgUrl from "@/utils/images/generateImgUrl";
 import Image from "next/image";
 import Link from "next/link";
 
-type Props = { prog: Movie };
+type Props = { prog: Tv };
 
-export default function MovieDetails({ prog }: Props) {
+export default function TvDetails({ prog }: Props) {
   const imgUrl = generateImgUrl(200, prog.poster_path);
+
+  console.log(prog);
   return (
-    <div className="flex flex-row flex-wrap">
+    <div className="flex flex-row flex-wrap ">
       <Image
         className="ml-2 h-[300px] w-[200px]"
         src={imgUrl}
-        alt={prog.title}
+        alt={prog.name}
         width={200}
         height={300}
       />
       <section className="m-4 w-2/3">
         <div className="flex flex-row flex-wrap items-end">
-          <h2 className="text text-6xl font-bold mr-4">{prog.title}</h2>
+          <h2 className="text text-6xl font-bold mr-4">{prog.name}</h2>
           <span className="text-base font-normal">
             {Math.round(prog.vote_average * 10) / 10} ⭐
-            {<span className="ml-4">{prog.runtime}</span>} mins
+            {<span className="ml-4">{prog.number_of_seasons}</span>} mins
           </span>
         </div>
         <p className="text-base italic">{prog.tagline}</p>

@@ -1,23 +1,29 @@
 import React from "react";
-import { getTvData } from "@/lib/getData";
-import { Prog, Tv } from "@/types";
-import Image from "next/image";
-import generateImgUrl from "@/utils/images/generateImgUrl";
-
+import { getTvData, getCastData } from "@/lib/getData";
+import { Credit, Tv } from "@/types";
+import MoreDetailsTv from "@/app/components/Tv/MoreDetailsTV";
+import TvDetails from "@/app/components/Tv/TvCardLg";
 type Props = { params: { id: string } };
 
 export default async function SingleProg({ params: { id } }: Props) {
-  const progData = await getTvData(`/tv/${id}`, "tv");
+  const progData = await getTvData(`tv/${id}`, "tv");
+  if (!progData) {
+    return <p className="mt-24">Content for id:{id} Not Found</p>;
+  }
   const prog: Tv = progData[0];
 
-  if (!prog) {
-    return <h2 className="mt-24">Nothing found</h2>;
-  }
-  const imgUrl = generateImgUrl(200, prog.poster_path);
-  return (
-    <div className="mt-24 text white">
-      <h1>{prog.name}</h1>
-      <Image src={imgUrl} alt={prog.name} width={200} height={300} />
-    </div>
+  const creditsData = await getCastData(`tv/${prog.id}/credits`, "person");
+  const cast: Credit[] = creditsData;
+
+  const content = (
+    <>
+      <div className="mt-24 text white flex flex-row flex-wrap">
+        <TvDetails prog={prog} />
+      </div>
+      <section>
+        <MoreDetailsTv prog={prog} cast={cast} />
+      </section>
+    </>
   );
+  return content;
 }
