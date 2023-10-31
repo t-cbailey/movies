@@ -85,18 +85,7 @@ type Tv = {
     }
   ];
   production_countries: [{ iso_3166_1: string; name: string }];
-  seasons: [
-    {
-      air_date: string;
-      episode_count: number;
-      id: number;
-      name: string;
-      overview: string;
-      poster_path: string;
-      season_number: number;
-      vote_average: number;
-    }
-  ];
+  seasons: Season[];
   spoken_languages: [{ english_name: string; iso_639_1: string; name: string }];
   status: string;
   tagline: string;
@@ -119,6 +108,17 @@ type Episode = {
   season_number: number;
   show_id: number;
   still_path: string;
+};
+
+type Season = {
+  air_date: string;
+  episode_count: number;
+  id: number;
+  name: string;
+  overview: string;
+  poster_path: string;
+  season_number: number;
+  vote_average: number;
 };
 
 type Person = {

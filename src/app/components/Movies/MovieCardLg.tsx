@@ -27,7 +27,7 @@ export default function MovieDetails({ prog }: Props) {
         </div>
         <p className="text-base italic">{prog.tagline}</p>
         <p className="mt-4">{prog.overview}</p>
-        <div className="flex flex-row mt-4">
+        <div className="flex flex-row mt-4 flex-wrap">
           {prog.genres.map((genre, i) => {
             return (
               <React.Fragment key={i}>

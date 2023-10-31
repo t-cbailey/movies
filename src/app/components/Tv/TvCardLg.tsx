@@ -1,15 +1,13 @@
-import React from "react";
 import { Tv } from "@/types";
 import generateImgUrl from "@/utils/images/generateImgUrl";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
 type Props = { prog: Tv };
 
 export default function TvDetails({ prog }: Props) {
   const imgUrl = generateImgUrl(200, prog.poster_path);
-
-  console.log(prog);
   return (
     <div className="flex flex-row flex-wrap ">
       <Image
@@ -24,12 +22,12 @@ export default function TvDetails({ prog }: Props) {
           <h2 className="text text-6xl font-bold mr-4">{prog.name}</h2>
           <span className="text-base font-normal">
             {Math.round(prog.vote_average * 10) / 10} ⭐
-            {<span className="ml-4">{prog.number_of_seasons}</span>} mins
+            {<span className="ml-4">{prog.number_of_seasons}</span>} seasons
           </span>
         </div>
         <p className="text-base italic">{prog.tagline}</p>
         <p className="mt-4">{prog.overview}</p>
-        <div className="flex flex-row mt-4">
+        <div className="flex flex-row mt-4 flex-wrap">
           {prog.genres.map((genre, i) => {
             return (
               <React.Fragment key={i}>

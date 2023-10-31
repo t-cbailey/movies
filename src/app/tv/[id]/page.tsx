@@ -1,8 +1,8 @@
-import React from "react";
-import { getTvData, getCastData } from "@/lib/getData";
-import { Credit, Tv } from "@/types";
-import MoreDetailsTv from "@/app/components/Tv/MoreDetailsTV";
+import MoreDetailsTv from "@/app/components/Tv/MoreDetailsTv";
 import TvDetails from "@/app/components/Tv/TvCardLg";
+import { getCastData, getTvData } from "@/lib/getData";
+import { Credit, Tv } from "@/types";
+import React from "react";
 type Props = { params: { id: string } };
 
 export default async function SingleProg({ params: { id } }: Props) {

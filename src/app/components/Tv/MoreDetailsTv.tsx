@@ -1,10 +1,11 @@
 "use client";
-import React from "react";
-import { Accordion, AccordionItem } from "@nextui-org/react";
 import { Credit, Tv } from "@/types";
-import Link from "next/link";
-import PersonCardSm from "../People/PersonCardSm";
 import generateImgUrl from "@/utils/images/generateImgUrl";
+import { Accordion, AccordionItem } from "@nextui-org/react";
+import Link from "next/link";
+import React from "react";
+import SeasonCardSm from "./SeasonCardSm";
+import PersonCardSm from "../People/PersonCardSm";
 
 type Props = {
   prog: Tv;
@@ -26,7 +27,15 @@ export default function MoreDetailsTv({ prog, cast }: Props) {
 
   return (
     <Accordion itemClasses={itemClasses}>
-      <AccordionItem key="1" aria-label="Cast" title="Top Cast">
+      <AccordionItem key="1" aria-label="Seasons" title="Seasons">
+        <div className="flex flex-row flex-wrap bg-gray-950">
+          {prog.seasons.map((season, i) => {
+            const imgUrl = generateImgUrl(200, season.poster_path);
+            return <SeasonCardSm key={i} season={season} imgUrl={imgUrl} />;
+          })}
+        </div>
+      </AccordionItem>
+      <AccordionItem key="2" aria-label="Cast" title="Top Cast">
         <div className="flex flex-row flex-wrap bg-gray-950">
           {topCast.map((person, i) => {
             const imgUrl = generateImgUrl(200, person.profile_path);
@@ -35,24 +44,23 @@ export default function MoreDetailsTv({ prog, cast }: Props) {
         </div>
       </AccordionItem>
 
-      <AccordionItem key="2" aria-label="More Details" title="More Details">
+      <AccordionItem key="3" aria-label="More Details" title="More Details">
         <div className="flex flex-col">
           <section className="ml-4 mb-4">
             <p className="text-lg text-orange-400 mb-1">
-              Release Date:
+              First Aired:
+              <span className="text-white"> {prog.first_air_date}</span>
+            </p>
+            <p className="text-lg text-orange-400 mb-1">
+              Most Recent Episode:
               <span className="text-white"> {prog.last_air_date}</span>
             </p>
+            <p className="text-lg text-orange-400 mb-1">
+              Total Episodes:
+              <span className="text-white"> {prog.number_of_episodes}</span>
+            </p>
           </section>
-          {/* <section className="ml-4 mb-4">
-            <p className="text-lg text-orange-400 mb-1">
-              Budget: <span className="text-white">{prog.budget}</span>
-            </p>
-          </section> */}
-          {/* <section className="ml-4 mb-4">
-            <p className="text-lg text-orange-400 mb-1">
-              Revenue: <span className="text-white">${prog.revenue}</span>
-            </p>
-          </section> */}
+
           <section className="ml-4">
             <h4 className="text-lg text-orange-400 mb-1">Studios:</h4>
             <ul className="m-w-1/4">
