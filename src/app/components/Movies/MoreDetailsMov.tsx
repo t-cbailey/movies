@@ -4,6 +4,7 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 import { Movie, Credit } from "@/types";
 import Link from "next/link";
 import PersonCardSm from "../People/PersonCardSm";
+import generateImgUrl from "@/utils/images/generateImgUrl";
 
 type Props = {
   prog: Movie;
@@ -28,7 +29,8 @@ export default function MoreDetailsMov({ prog, cast }: Props) {
       <AccordionItem key="1" aria-label="Cast" title="Top Cast">
         <div className="flex flex-row flex-wrap bg-gray-950">
           {topCast.map((person, i) => {
-            return <PersonCardSm key={i} person={person} />;
+            const imgUrl = generateImgUrl(200, person.profile_path);
+            return <PersonCardSm key={i} person={person} imgUrl={imgUrl} />;
           })}
         </div>
       </AccordionItem>

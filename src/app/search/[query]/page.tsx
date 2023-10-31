@@ -1,4 +1,4 @@
-import { getMovieData, getPersonData, getTvData } from "@/lib/getData";
+import { getMovieData, getTvData, getPersonData } from "@/lib/getData";
 import { link } from "fs";
 import React from "react";
 import { Movie, Person, Tv } from "@/types";
