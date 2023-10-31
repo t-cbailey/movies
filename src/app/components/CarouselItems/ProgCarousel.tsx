@@ -36,8 +36,8 @@ export default function ProgCarousel({ progArr, heading }: Props) {
         >
           {progArr
             .sort((a, b) => {
-              if (a.vote_average > b.vote_average) return 1;
-              if (a.vote_average < b.vote_average) return -1;
+              if (a.vote_average < b.vote_average) return 1;
+              if (a.vote_average > b.vote_average) return -1;
               return 0;
             })
             .map((prog: Prog) => {
