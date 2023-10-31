@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import fallbackImg from "../../../../public/fallbackImg.png";
+
 type Props = { prog: Prog };
 
 export default function PosterCard({ prog }: Props) {

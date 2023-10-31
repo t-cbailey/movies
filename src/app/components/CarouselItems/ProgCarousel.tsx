@@ -1,14 +1,13 @@
 "use client";
-
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/free-mode";
-import PosterCard from "./PosterCard";
 import { Prog } from "@/types";
+import React from "react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import { EffectCoverflow, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "../../../../style.css";
+import PosterCard from "./PosterCard";
 
 type Props = { progArr: Prog[]; heading: string };
 
