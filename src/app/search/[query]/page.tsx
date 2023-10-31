@@ -1,5 +1,4 @@
 import { getMovieData, getTvData, getPersonData } from "@/lib/getData";
-
 import React from "react";
 import PersonCarousel from "@/app/components/CarouselItems/PersonCarousel";
 import ProgCarousel from "@/app/components/CarouselItems/ProgCarousel";

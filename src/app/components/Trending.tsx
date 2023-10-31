@@ -1,8 +1,7 @@
 import React from "react";
-import { Movie, Prog, Tv } from "@/types";
+import { Movie, Tv } from "@/types";
 import ProgCarousel from "./CarouselItems/ProgCarousel";
 import { getMovieData, getTvData } from "@/lib/getData";
-import { addProgType } from "@/utils/addProgType/addProgType";
 
 export default async function Trending() {
   const [discoverMovies, trendingMovies, popularMovies]: Movie[][] = [

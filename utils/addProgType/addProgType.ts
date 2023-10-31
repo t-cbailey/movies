@@ -1,4 +1,4 @@
-import { Person, Prog, ProgType, Tv, Movie } from "@/types";
+import { Person, ProgType, Tv, Movie } from "@/types";
 
 export function addProgType(input: Tv[] | Movie[] | Person[], type: ProgType) {
   if (Array.isArray(input)) {

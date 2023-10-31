@@ -1,7 +1,6 @@
 import React from "react";
 import getGenres from "@/lib/getGenres";
 import { Genre } from "@/types";
-import Link from "next/link";
 import Dropdown from "./Dropdowns/MainDropdown";
 
 export default async function Sidebar() {

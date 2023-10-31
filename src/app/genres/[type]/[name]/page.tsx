@@ -1,10 +1,8 @@
 import React from "react";
-import api from "@/utils/axios/axiosConfig";
 import { Genre, Prog, ProgType } from "@/types";
 import { getTvData, getMovieData } from "@/lib/getData";
 import PosterCard from "@/app/components/CarouselItems/PosterCard";
 import getGenres from "@/lib/getGenres";
-import { addProgType } from "@/utils/addProgType/addProgType";
 
 type Props = { params: { type: ProgType; name: string } };
 

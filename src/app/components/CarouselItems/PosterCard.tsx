@@ -1,5 +1,5 @@
 "use client";
-import { Prog, ProgType } from "@/types";
+import { Prog } from "@/types";
 import generateImgUrl from "@/utils/images/generateImgUrl";
 import Image from "next/image";
 import Link from "next/link";

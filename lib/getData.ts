@@ -1,6 +1,6 @@
 import { addProgType } from "@/utils/addProgType/addProgType";
 import api from "../utils/axios/axiosConfig";
-import { Movie, Person, Prog, ProgType, Tv } from "@/types";
+import { ProgType } from "@/types";
 
 export const getMovieData = async (
   path: string,

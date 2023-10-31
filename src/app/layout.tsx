@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import { Navbar } from "./components/Navbar";
 import React from "react";
 import Sidebar from "./components/SideBar/Sidebar";
-import { Grid } from "swiper/modules";
 
 const inter = Inter({ subsets: ["latin"] });
 
