@@ -19,8 +19,8 @@ export default async function Search({ params: { query } }: Props) {
     return (
       <>
         <h2 className="mt-24 text-2xl">
-          <span className="text-orange-400">Results for </span> "
-          {query.replaceAll("%20", " ")}"{" "}
+          <span className="text-orange-400">Results for </span> &quot;
+          {query.replaceAll("%20", " ")}&quot;
         </h2>
         <ProgCarousel progArr={movies} heading="Movies" />
         <ProgCarousel progArr={tv} heading="Tv" />
