@@ -9,13 +9,13 @@ type Props = { prog: Tv };
 export default function TvCardLg({ prog }: Props) {
   const imgUrl = generateImgUrl(200, prog.poster_path);
   return (
-    <div className="flex flex-row flex-wrap ">
+    <div className="flex flex-row flex-wrap text-white ">
       <Image
-        className="ml-2 h-[300px] w-[200px]"
         src={imgUrl}
         alt={prog.name}
         width={200}
         height={300}
+        className="ml-2"
       />
       <section className="m-4 w-2/3">
         <div className="flex flex-row flex-wrap items-end">

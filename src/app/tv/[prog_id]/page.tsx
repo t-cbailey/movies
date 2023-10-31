@@ -20,9 +20,9 @@ export default async function SingleProg({ params: { prog_id } }: Props) {
 
   const content = (
     <>
-      <div className="mt-24 text white flex flex-row flex-wrap">
+      <section className="mt-24 ">
         <TvCardLg prog={prog} />
-      </div>
+      </section>
       <section>
         <MoreDetailsTv prog={prog} cast={cast} />
       </section>

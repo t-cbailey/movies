@@ -1,7 +1,6 @@
 import { Season, Tv } from "@/types";
 import generateImgUrl from "@/utils/images/generateImgUrl";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 type Props = {
@@ -14,7 +13,7 @@ export default function SeasonCardL({ season }: Props) {
   return (
     <div className="flex flex-row flex-wrap">
       <Image src={imgUrl} alt={season.name} width={200} height={300} />
-      <section className="m-4 w-2/3">
+      <section className="m-4 w-2/3 self-center">
         <div className="flex flex-row flex-wrap items-end">
           <h2 className="text text-6xl font-bold mr-4">{season.name}</h2>
           <span className="text-base font-normal">

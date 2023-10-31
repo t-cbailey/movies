@@ -28,7 +28,7 @@ export default async function SingleSeason({
 
   const content = (
     <>
-      <section className="mt-24 text white flex flex-row flex-wrap">
+      <section className="mt-24">
         <SeasonCardLg season={season} />
       </section>
       <section>

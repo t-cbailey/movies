@@ -11,7 +11,7 @@ export default function MovieDetails({ prog }: Props) {
   return (
     <div className="flex flex-row flex-wrap">
       <Image
-        className="ml-2 h-[300px] w-[200px]"
+        className="ml-2"
         src={imgUrl}
         alt={prog.title}
         width={200}
