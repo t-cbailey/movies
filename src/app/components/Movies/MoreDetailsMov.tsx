@@ -36,9 +36,25 @@ export default function MoreDetailsMov({ prog, cast }: Props) {
       </AccordionItem>
 
       <AccordionItem key="2" aria-label="More Details" title="More Details">
-        <div className="flex flex-row">
-          <section>
-            <h4 className="text-lg text-orange-600 mb-1">Studios</h4>
+        <div className="flex flex-col">
+          <section className="ml-4 mb-4">
+            <p className="text-lg text-orange-400 mb-1">
+              Release Date:
+              <span className="text-white"> {prog.release_date}</span>
+            </p>
+          </section>
+          <section className="ml-4 mb-4">
+            <p className="text-lg text-orange-400 mb-1">
+              Budget: <span className="text-white">{prog.budget}</span>
+            </p>
+          </section>
+          <section className="ml-4 mb-4">
+            <p className="text-lg text-orange-400 mb-1">
+              Revenue: <span className="text-white">${prog.revenue}</span>
+            </p>
+          </section>
+          <section className="ml-4">
+            <h4 className="text-lg text-orange-400 mb-1">Studios:</h4>
             <ul className="m-w-1/4">
               {prog.production_companies.map((company, i) => {
                 return (
