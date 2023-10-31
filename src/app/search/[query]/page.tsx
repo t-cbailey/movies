@@ -18,7 +18,10 @@ export default async function Search({ params: { query } }: Props) {
   if (movies && tv && person) {
     return (
       <>
-        <h2 className="mt-24">results for {query} </h2>
+        <h2 className="mt-24 text-2xl">
+          <span className="text-orange-400">Results for </span> "
+          {query.replaceAll("%20", " ")}"{" "}
+        </h2>
         <ProgCarousel progArr={movies} heading="Movies" />
         <ProgCarousel progArr={tv} heading="Tv" />
         <PersonCarousel personArr={person} heading="People" />
