@@ -5,7 +5,7 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 import Link from "next/link";
 import React from "react";
 import SeasonCardSm from "./SeasonCardSm";
-import PersonCardSm from "../People/PersonCardSm";
+import CastDropDown from "../People/CastDropDown";
 
 type Props = {
   prog: Tv;
@@ -31,17 +31,19 @@ export default function MoreDetailsTv({ prog, cast }: Props) {
         <div className="flex flex-row flex-wrap bg-gray-950">
           {prog.seasons.map((season, i) => {
             const imgUrl = generateImgUrl(200, season.poster_path);
-            return <SeasonCardSm key={i} season={season} imgUrl={imgUrl} />;
+            return (
+              <SeasonCardSm
+                key={i}
+                season={season}
+                imgUrl={imgUrl}
+                prog={prog}
+              />
+            );
           })}
         </div>
       </AccordionItem>
       <AccordionItem key="2" aria-label="Cast" title="Top Cast">
-        <div className="flex flex-row flex-wrap bg-gray-950">
-          {topCast.map((person, i) => {
-            const imgUrl = generateImgUrl(200, person.profile_path);
-            return <PersonCardSm key={i} person={person} imgUrl={imgUrl} />;
-          })}
-        </div>
+        <CastDropDown cast={topCast} />
       </AccordionItem>
 
       <AccordionItem key="3" aria-label="More Details" title="More Details">

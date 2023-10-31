@@ -1,4 +1,5 @@
 import { StdioNull } from "child_process";
+import { type } from "os";
 
 type Prog = Movie | Tv | Person;
 
@@ -85,7 +86,18 @@ type Tv = {
     }
   ];
   production_countries: [{ iso_3166_1: string; name: string }];
-  seasons: Season[];
+  seasons: [
+    {
+      air_date: string;
+      episode_count: number;
+      id: number;
+      name: string;
+      overview: string;
+      poster_path: string;
+      season_number: number;
+      vote_average: number;
+    }
+  ];
   spoken_languages: [{ english_name: string; iso_639_1: string; name: string }];
   status: string;
   tagline: string;
@@ -111,14 +123,15 @@ type Episode = {
 };
 
 type Season = {
+  _id: number;
   air_date: string;
-  episode_count: number;
-  id: number;
+  episodes: Episode[];
   name: string;
   overview: string;
   poster_path: string;
   season_number: number;
   vote_average: number;
+  type: ProgType;
 };
 
 type Person = {

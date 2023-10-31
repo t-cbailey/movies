@@ -6,7 +6,7 @@ import React from "react";
 
 type Props = { prog: Tv };
 
-export default function TvDetails({ prog }: Props) {
+export default function TvCardLg({ prog }: Props) {
   const imgUrl = generateImgUrl(200, prog.poster_path);
   return (
     <div className="flex flex-row flex-wrap ">
@@ -32,7 +32,7 @@ export default function TvDetails({ prog }: Props) {
             return (
               <React.Fragment key={i}>
                 <Link href={`/genres/${prog.type}/${genre.name}`}>
-                  <p className="m-2 p-1 border border-orange-400 rounded-full ">
+                  <p className="m-2 p-1 border border-orange-400 rounded-full hover:text-orange-400 hover:border-white">
                     {genre.name}
                   </p>
                 </Link>

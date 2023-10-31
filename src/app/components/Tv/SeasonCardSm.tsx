@@ -1,14 +1,30 @@
 import React from "react";
-import { Credit, Season } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
+import { Tv } from "@/types";
 
-type Props = { season: Season; imgUrl: string };
+type Props = {
+  season: {
+    air_date: string;
+    episode_count: number;
+    id: number;
+    name: string;
+    overview: string;
+    poster_path: string;
+    season_number: number;
+    vote_average: number;
+  };
+  imgUrl: string;
+  prog: Tv;
+};
 
-export default function SeasonCardSm({ season, imgUrl }: Props) {
+export default function SeasonCardSm({ season, imgUrl, prog }: Props) {
   return (
     <>
-      <Link href={`/season/${season.id}`} className=" w-1/4 m-4">
+      <Link
+        href={`/tv/${prog.id}/season/${season.season_number}`}
+        className=" w-1/4 m-4"
+      >
         <section className=" flex flex-row items-center mb-4 hover:bg-gray-900">
           <Image
             priority={true}
