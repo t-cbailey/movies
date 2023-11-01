@@ -31,7 +31,12 @@ export default function TvCardLg({ prog }: Props) {
           {prog.genres.map((genre, i) => {
             return (
               <React.Fragment key={i}>
-                <Link href={`/genres/${prog.type}/${genre.name}`}>
+                <Link
+                  href={`/genres/${prog.type}/${genre.name.replaceAll(
+                    " ",
+                    "_"
+                  )}`}
+                >
                   <p className="m-2 p-1 border border-orange-400 rounded-full hover:text-orange-400 hover:border-white">
                     {genre.name}
                   </p>
