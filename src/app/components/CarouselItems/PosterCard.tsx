@@ -30,6 +30,7 @@ export default function PosterCard({ prog }: Props) {
     <>
       <Link href={`/${type}/${prog.id}`}>
         <Image
+          placeholder="empty"
           onError={setError}
           src={error ? fallback : src}
           alt={alt}
@@ -37,6 +38,7 @@ export default function PosterCard({ prog }: Props) {
           height={300}
           style={{ width: "200px", height: "auto" }}
         />
+
         <h4 className="text-white w-4/5 pl-2 pt-2 text-sm line-clamp-3  text-ellipsis">
           {type === "movie" ? prog.title : prog.name}
         </h4>
