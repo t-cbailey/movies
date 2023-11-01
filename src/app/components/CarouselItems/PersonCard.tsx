@@ -13,7 +13,7 @@ export default function PersonCard({ person }: Props) {
   const imgUrl = generateImgUrl(200, person.profile_path);
 
   const fallback = fallbackImg,
-    alt = "person.name",
+    alt = "personImg",
     src = imgUrl;
 
   const [error, setError]: any = React.useState(null);
@@ -33,7 +33,7 @@ export default function PersonCard({ person }: Props) {
       <h4 className="text-white w-4/5 pl-2 pt-2 text-sm line-clamp-3  text-ellipsis">
         {person.name}
       </h4>
-      <p className="pl-2 text-white">{person.popularity} ⭐</p>
+      <p className="pl-2 text-white">{person.popularity} ❤️</p>
     </Link>
   );
 }

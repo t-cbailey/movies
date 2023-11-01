@@ -35,6 +35,7 @@ type Movie = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  character?: string;
   type: "movie";
 };
 
@@ -103,6 +104,7 @@ type Tv = {
   tagline: string;
   vote_average: number;
   vote_count: number;
+  character?: string;
   type: "tv";
 };
 
@@ -136,18 +138,26 @@ type Season = {
 
 type Person = {
   adult: boolean;
+  also_known_as: string[];
+  biography: string;
+  birthday: string;
+  deathday: string;
   gender: number;
+  homepage: string | null;
   id: number;
   known_for_department: string;
   name: string;
-  original_name: string;
+  place_of_birth: string;
+  original_name?: string;
   popularity: number;
   profile_path: string;
-  known_for: Prog[];
+  known_for?: Prog[];
   type: "person";
 };
 
 type Credit = {
+  backdrop_path?: string;
+  poster_path?: string;
   adult: boolean;
   cast_id: string;
   character: string;
@@ -155,10 +165,12 @@ type Credit = {
   gender: number;
   id: number;
   known_for_department: string;
+  vote_average?: number;
   name: string;
   original_name: string;
   popularity: number;
   profile_path: string;
+  vote_average?: number;
   type: "person";
 };
 

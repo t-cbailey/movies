@@ -41,10 +41,7 @@ export default function ProgCarousel({ progArr, heading }: Props) {
             })
             .map((prog: Prog) => {
               return (
-                <SwiperSlide
-                  key={prog.id}
-                  className="text-black bg-black flex "
-                >
+                <SwiperSlide key={prog.id} className=" bg-black ">
                   <PosterCard prog={prog} />
                 </SwiperSlide>
               );

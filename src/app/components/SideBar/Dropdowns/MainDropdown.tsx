@@ -2,11 +2,15 @@
 import React from "react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import MovieGenreDropdown from "./GenreDropdown";
-import { Genre } from "@/types";
+import { Genre, Person } from "@/types";
+import Link from "next/link";
 
-type Props = { genres: { movie: Genre[]; tv: Genre[] } };
+type Props = {
+  genres: { movie: Genre[]; tv: Genre[] };
+  trendingPeople: Person[];
+};
 
-export default function MainDropdown({ genres }: Props) {
+export default function MainDropdown({ genres, trendingPeople }: Props) {
   const itemClasses = {
     title: "font-normal text-orange-600 hover:text-orange-300",
   };
@@ -15,8 +19,21 @@ export default function MainDropdown({ genres }: Props) {
       <AccordionItem key="1" aria-label="Genres" title="Genres">
         <MovieGenreDropdown genres={genres} />
       </AccordionItem>
-      <AccordionItem key="2" aria-label="People" title="People"></AccordionItem>
-      <AccordionItem key="3" aria-label="Year" title="Year"></AccordionItem>
+      <AccordionItem key="2" aria-label="People" title="People">
+        <Accordion itemClasses={itemClasses}>
+          <AccordionItem key="1" aria-label="Trending" title="Trending">
+            <ul>
+              {trendingPeople.map((person, i) => {
+                return (
+                  <Link key={i} href={`/person/${person.id}`}>
+                    <li className="hover:text-orange-200">{person.name}</li>
+                  </Link>
+                );
+              })}
+            </ul>
+          </AccordionItem>
+        </Accordion>
+      </AccordionItem>
     </Accordion>
   );
 }

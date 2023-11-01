@@ -7,7 +7,7 @@ type Props = {
   season: Season;
 };
 
-export default function SeasonCardL({ season }: Props) {
+export default function SeasonCardLg({ season }: Props) {
   const imgUrl = generateImgUrl(200, season.poster_path);
 
   return (
