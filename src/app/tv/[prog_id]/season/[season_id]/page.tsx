@@ -11,6 +11,8 @@ type Props = {
   };
 };
 
+export const revalidate = 86000;
+
 export default async function SingleSeason({
   params: { season_id, prog_id },
 }: Props) {

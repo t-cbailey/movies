@@ -3,6 +3,8 @@ import { Movie, Tv } from "@/types";
 import ProgCarousel from "./CarouselItems/ProgCarousel";
 import { getMovieData, getTvData } from "@/lib/getData";
 
+export const revalidate = 86000;
+
 export default async function Trending() {
   const [discoverMovies, trendingMovies, popularMovies]: Movie[][] = [
     await getMovieData("discover/movie", "movie"),

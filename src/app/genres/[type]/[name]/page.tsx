@@ -2,9 +2,11 @@ import React from "react";
 import { Genre, Prog, ProgType } from "@/types";
 import { getTvData, getMovieData } from "@/lib/getData";
 import PosterCard from "@/app/components/CarouselItems/PosterCard";
-import getGenres from "@/lib/getGenres";
+import { getGenres } from "@/lib/getGenres";
 
 type Props = { params: { type: ProgType; name: string } };
+
+export const revalidate = 86000;
 
 export default async function PageByGenre({ params: { type, name } }: Props) {
   const genreName = name.replaceAll("_", " ").replaceAll("%26", "&");

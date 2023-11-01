@@ -6,6 +6,8 @@ import React from "react";
 
 type Props = { params: { prog_id: string } };
 
+export const revalidate = 86000;
+
 export default async function SingleProg({ params: { prog_id } }: Props) {
   const id = prog_id;
 

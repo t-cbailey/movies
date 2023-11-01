@@ -1,8 +1,10 @@
 import React from "react";
-import getGenres from "@/lib/getGenres";
+import { getGenres } from "@/lib/getGenres";
 import { Genre, Person } from "@/types";
 import Dropdown from "./Dropdowns/MainDropdown";
 import { getPersonData } from "@/lib/getData";
+
+export const revalidate = 86000;
 
 export default async function Sidebar() {
   const genres: { movie: Genre[]; tv: Genre[] } = await getGenres();

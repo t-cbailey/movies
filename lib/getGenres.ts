@@ -1,7 +1,10 @@
 import api from "@/utils/axios/axiosConfig";
 import { Genre } from "@/types";
+import { cache } from "react";
 
-export default async function getGenres() {
+export const revalidate = 86000;
+
+export const getGenres = cache(async () => {
   const fetchMovGenres = await api
     .get("genre/movie/list")
     .catch(function (error) {
@@ -22,4 +25,4 @@ export default async function getGenres() {
   if (res) genres = { movie: res[0]?.data.genres, tv: res[1]?.data.genres };
 
   return genres;
-}
+});

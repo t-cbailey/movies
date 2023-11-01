@@ -6,6 +6,8 @@ import MovieDetails from "@/app/components/Movies/MovieCardLg";
 
 type Props = { params: { id: string } };
 
+export const revalidate = 86000;
+
 export default async function SingleProg({ params: { id } }: Props) {
   const progData = await getMovieData(`movie/${id}`, "movie");
   if (!progData) {

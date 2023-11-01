@@ -5,6 +5,8 @@ import ProgCarousel from "@/app/components/CarouselItems/ProgCarousel";
 
 type Props = { params: { query: string } };
 
+export const revalidate = 86000;
+
 export default async function Search({ params: { query } }: Props) {
   const [movieRes, tvRes, personRes] = [
     getMovieData(`search/movie?query=${query}`, "movie"),
