@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "./components/Navbar/Navbar";
 import React from "react";
 import Sidebar from "./components/SideBar/Sidebar";
 import { color } from "framer-motion";
