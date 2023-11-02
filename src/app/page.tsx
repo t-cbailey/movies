@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <>
       <section>
-        <h2 className="mt-24 text-2xl text-orange-200 font-bold">
+        <h2 className="mt-24 ml-2 text-2xl text-orange-200 font-bold">
           What to Watch
         </h2>
 

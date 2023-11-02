@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Navbar } from "./components/Navbar";
 import React from "react";
 import Sidebar from "./components/SideBar/Sidebar";
+import { color } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-black">
       <body className={inter.className}>
         <div className=" l:grid grid-cols-4">
           <Navbar />

@@ -39,11 +39,11 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
   if (progs) {
     return (
       <>
-        <section>
+        <section className="s:ml-2 m:ml-2">
           <h2 className="mt-24 mb-4 text-3xl text-orange-300">
             {`${genreName} ${type === "tv" ? "Programmes" : "Movies"}`}
           </h2>
-          <ul className="flex flex-row flex-wrap">
+          <ul className="flex flex-row flex-wrap justify-center">
             {progs.map((prog) => {
               return (
                 <React.Fragment key={prog.id}>
