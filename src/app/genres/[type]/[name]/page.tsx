@@ -1,12 +1,14 @@
 import React from "react";
-import { Genre, Prog, ProgType } from "@/types";
+import { Genre, Prog, ProgType, Tv } from "@/types";
 import { getTvData, getMovieData } from "@/lib/getData";
 import PosterCard from "@/app/components/CarouselItems/PosterCard";
 import { getGenres } from "@/lib/getGenres";
 
 type Props = { params: { type: ProgType; name: string } };
 
-export const revalidate = 86000;
+export function generateMetadata({ params: { type, name } }: Props) {
+  return { title: `${name} ${type} ` };
+}
 
 export default async function PageByGenre({ params: { type, name } }: Props) {
   const genreName = name.replaceAll("_", " ").replaceAll("%26", "&");

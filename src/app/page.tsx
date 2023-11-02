@@ -4,6 +4,10 @@ import Trending from "./components/Trending";
 
 export const revalidate = 86400;
 
+export function generateMetadata() {
+  return { title: "Information about Movies, Tv and People." };
+}
+
 export default async function Home() {
   return (
     <>

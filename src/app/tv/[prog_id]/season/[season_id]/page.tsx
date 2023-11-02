@@ -11,7 +11,9 @@ type Props = {
   };
 };
 
-export const revalidate = 86000;
+export function generateMetadata({ params: { season_id, prog_id } }: Props) {
+  return { title: `Programme id: ${prog_id} season: ${season_id} ` };
+}
 
 export default async function SingleSeason({
   params: { season_id, prog_id },
@@ -25,8 +27,7 @@ export default async function SingleSeason({
 
   const season: Season = progData[0];
 
-  const creditsData = await getCastData(`tv/${prog_id}/credits`, "person");
-  const cast: Credit[] = creditsData;
+  const cast: Credit[] = await getCastData(`tv/${prog_id}/credits`, "person");
 
   const content = (
     <>

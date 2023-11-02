@@ -6,17 +6,23 @@ import MovieDetails from "@/app/components/Movies/MovieCardLg";
 
 type Props = { params: { id: string } };
 
-export const revalidate = 86000;
+export function generateMetadata({ params: { id } }: Props) {
+  return { title: `Movie with id: ${id} ` };
+}
 
 export default async function SingleProg({ params: { id } }: Props) {
   const progData = await getMovieData(`movie/${id}`, "movie");
+
   if (!progData) {
     return <p className="mt-24">Content for id:{id} Not Found</p>;
   }
+
   const prog: Movie = progData[0];
 
-  const creditsData = await getCastData(`movie/${prog.id}/credits`, "person");
-  const cast: Credit[] = creditsData;
+  const cast: Credit[] = await getCastData(
+    `movie/${prog.id}/credits`,
+    "person"
+  );
 
   const content = (
     <>

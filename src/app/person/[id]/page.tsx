@@ -2,8 +2,13 @@ import PersonCardLg from "@/app/components/People/PersonCardLg";
 import React from "react";
 import { getPersonData, getCastData } from "@/lib/getData";
 import MoreDetailsPerson from "@/app/components/People/MoreDetailsPerson";
+import { Tv, Movie } from "@/types";
 
 type Params = { params: { id: string } };
+
+export function generateMetadata({ params: { id } }: Params) {
+  return { title: `Person with Id: ${id} ` };
+}
 
 export default async function Page({ params: { id } }: Params) {
   const fetchData = getPersonData(`person/${id}`, "person");
@@ -13,9 +18,8 @@ export default async function Page({ params: { id } }: Params) {
     `person/${id}/movie_credits`,
     "movie"
   );
-  const movieCredits = await fetchMovieCreditData;
-  const fetchTvCreditData = getCastData(`person/${id}/tv_credits`, "tv");
-  const tvCredits = await fetchTvCreditData;
+  const movieCredits: Movie[] = await fetchMovieCreditData;
+  const tvCredits: Tv[] = await getCastData(`person/${id}/tv_credits`, "tv");
 
   const credits = [...movieCredits, ...tvCredits];
 

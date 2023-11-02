@@ -6,7 +6,9 @@ import React from "react";
 
 type Props = { params: { prog_id: string } };
 
-export const revalidate = 86000;
+export function generateMetadata({ params: { prog_id } }: Props) {
+  return { title: `Programme with Id: ${prog_id} ` };
+}
 
 export default async function SingleProg({ params: { prog_id } }: Props) {
   const id = prog_id;
@@ -17,8 +19,7 @@ export default async function SingleProg({ params: { prog_id } }: Props) {
   }
 
   const prog: Tv = progData[0];
-  const creditsData = await getCastData(`tv/${prog.id}/credits`, "person");
-  const cast: Credit[] = creditsData;
+  const cast: Credit[] = await getCastData(`tv/${prog.id}/credits`, "person");
 
   const content = (
     <>
