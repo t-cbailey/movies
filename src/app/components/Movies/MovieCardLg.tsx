@@ -18,6 +18,7 @@ export default function MovieDetails({ prog }: Props) {
         alt={prog.title}
         width={200}
         height={300}
+        style={{ width: "200px", height: "300px" }}
       />
       <section className="m-4 w-2/3">
         <div className="flex flex-row flex-wrap items-end">

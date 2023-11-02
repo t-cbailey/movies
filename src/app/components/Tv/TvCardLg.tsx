@@ -16,6 +16,7 @@ export default function TvCardLg({ prog }: Props) {
         width={200}
         height={300}
         className="ml-2"
+        style={{ width: "200px", height: "300px" }}
       />
       <section className="m-4 w-2/3">
         <div className="flex flex-row flex-wrap items-end">

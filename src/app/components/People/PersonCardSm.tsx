@@ -8,7 +8,7 @@ type Props = { person: Credit; imgUrl: string };
 export default function PersonCardSm({ person, imgUrl }: Props) {
   return (
     <>
-      <Link href={`/person/${person.id}`} className=" w-1/4 m-4">
+      <Link href={`/person/${person.id}`}>
         <section className=" flex flex-row items-center mb-4 hover:bg-gray-900">
           <Image
             priority={true}

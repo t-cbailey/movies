@@ -31,10 +31,10 @@ export default async function SingleSeason({
 
   const content = (
     <>
-      <section className="mt-24">
+      <section className="mt-24 m:ml-4">
         <SeasonCardLg season={season} />
       </section>
-      <section>
+      <section className="m:m-4">
         <MoreDetailsSeason season={season} cast={cast} />
       </section>
     </>

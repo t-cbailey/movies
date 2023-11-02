@@ -19,8 +19,12 @@ export default function ProgCarousel({ progArr, heading }: Props) {
           {heading}
         </h3>
         <Swiper
+          breakpoints={{
+            300: { slidesPerView: 2 },
+            768: { slidesPerView: 4 },
+            1024: { slidesPerView: 5 },
+          }}
           loop={true}
-          slidesPerView={5}
           spaceBetween={30}
           effect={"coverflow"}
           pagination={{ clickable: true }}

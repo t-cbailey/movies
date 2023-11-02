@@ -20,7 +20,11 @@ export default function PersonCarousel({ personArr, heading }: Props) {
         </h3>
         <Swiper
           loop={true}
-          slidesPerView={5}
+          breakpoints={{
+            300: { slidesPerView: 2 },
+            768: { slidesPerView: 4 },
+            1024: { slidesPerView: 5 },
+          }}
           spaceBetween={30}
           effect={"coverflow"}
           pagination={{ clickable: true }}
