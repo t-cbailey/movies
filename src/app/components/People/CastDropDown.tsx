@@ -7,11 +7,11 @@ type Props = { cast: Credit[] };
 
 export default function CastDropDown({ cast }: Props) {
   return (
-    <ul className="flex flex-row flex-wrap bg-gray-900 m:justify-center">
+    <ul className="flex flex-row flex-wrap bg-gray-950 w-[90%] ml-[5%] ">
       {cast.map((person, i) => {
         const imgUrl = generateImgUrl(200, person.profile_path);
         return (
-          <li key={i}>
+          <li key={i} className="m:w-1/3 m:p-2">
             <PersonCardSm person={person} imgUrl={imgUrl} />
           </li>
         );
