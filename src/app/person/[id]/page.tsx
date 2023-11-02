@@ -25,10 +25,10 @@ export default async function Page({ params: { id } }: Params) {
 
   return (
     <>
-      <section className="mt-24 m:ml-4">
+      <section className="mt-24 ml-4">
         <PersonCardLg person={person[0]} />
       </section>
-      <section className=" m:ml-4 mr-4">
+      <section className=" ml-4 mr-4">
         <MoreDetailsPerson person={person[0]} credits={credits} />
       </section>
     </>

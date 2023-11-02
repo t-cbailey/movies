@@ -23,10 +23,10 @@ export default async function SingleProg({ params: { prog_id } }: Props) {
 
   const content = (
     <>
-      <section className="mt-24 m:ml-4">
+      <section className="mt-24 ml-4">
         <TvCardLg prog={prog} />
       </section>
-      <section className="m:ml-4">
+      <section className="ml-4">
         <MoreDetailsTv prog={prog} cast={cast} />
       </section>
     </>

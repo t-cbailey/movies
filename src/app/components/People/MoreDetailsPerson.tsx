@@ -22,7 +22,7 @@ export default function MoreDetailsPerson({ person, credits }: Props) {
           aria-label="Top Appearances"
           title="Top Appearances"
         >
-          <ul className="flex flex-row flex-wrap mt-4 m:w-[90%] m:ml-[5%] ">
+          <ul className="flex flex-row flex-wrap mt-4 w-[90%] ml-[5%] ">
             {credits
               .filter((credit) => {
                 return credit.popularity > 5;

@@ -39,7 +39,7 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
   if (progs) {
     return (
       <>
-        <section className="s:ml-2 m:ml-2">
+        <section className="ml-2">
           <h2 className="mt-24 mb-4 text-3xl text-orange-300">
             {`${genreName} ${type === "tv" ? "Programmes" : "Movies"}`}
           </h2>

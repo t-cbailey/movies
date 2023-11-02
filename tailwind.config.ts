@@ -18,8 +18,8 @@ const config: Config = {
       maxWidth: { posterCard: "200px" },
     },
     screens: {
-      s: { min: "300px", max: "767px" },
-      m: { min: "768px", max: "1023px" },
+      s: { min: "300px" },
+      m: { min: "768px" },
       l: { min: "1024px" },
     },
   },

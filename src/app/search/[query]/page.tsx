@@ -21,7 +21,7 @@ export default async function Search({ params: { query } }: Props) {
   if (movies && tv && person) {
     return (
       <>
-        <h2 className="mt-24 text-2xl m:ml-4">
+        <h2 className="mt-24 text-2xl ml-4">
           <span className="text-orange-400">Results for </span> &quot;
           {query.replaceAll("%20", " ")}&quot;
         </h2>
