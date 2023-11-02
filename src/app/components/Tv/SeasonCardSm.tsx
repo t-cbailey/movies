@@ -34,7 +34,7 @@ export default function SeasonCardSm({ season, imgUrl, prog }: Props) {
     <>
       <Link
         href={`/tv/${prog.id}/season/${season.season_number}`}
-        className=" w-1/4 m-4"
+        className=" m:w-1/4 m-4"
       >
         <section className=" flex flex-row items-center mb-4 hover:bg-gray-900">
           <Image
