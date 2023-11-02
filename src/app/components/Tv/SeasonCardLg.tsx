@@ -11,7 +11,7 @@ export default function SeasonCardLg({ season }: Props) {
   const imgUrl = generateImgUrl(200, season.poster_path);
 
   return (
-    <div className="flex flex-row flex-wrap ">
+    <div className="flex m:flex-row m:flex-wrap flex-col place-items-center">
       <Image
         src={imgUrl}
         alt={season.name}
@@ -19,7 +19,7 @@ export default function SeasonCardLg({ season }: Props) {
         height={300}
         style={{ width: "200px", height: "300px" }}
       />
-      <section className="m-4 w-2/3 self-center">
+      <section className="m-4 m:w-2/3 m:self-center">
         <div className="flex flex-row flex-wrap items-end">
           <h2 className="text text-6xl font-bold mr-4">{season.name}</h2>
           <span className="text-base font-normal">

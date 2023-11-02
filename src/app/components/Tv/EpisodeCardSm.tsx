@@ -15,7 +15,7 @@ export default function EpisodeCardSm({ episode, imgUrl }: Props) {
           width={200}
           height={113}
         />
-        <section className="m-4 w-2/3">
+        <section className="m-4 l:w-2/3">
           <div className="flex flex-row flex-wrap items-end">
             <h2 className="text text-3xl font-bold mr-4 ">{episode.name}</h2>
             <p className="text-base font-normal">

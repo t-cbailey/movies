@@ -22,7 +22,7 @@ export default function MoreDetailsPerson({ person, credits }: Props) {
           aria-label="Top Appearances"
           title="Top Appearances"
         >
-          <ul className="flex flex-row flex-wrap mt-4 w-[90%] ml-[5%] ">
+          <ul className="s:justify-center m:justify-start flex flex-row flex-wrap mt-4 m:w-[90%] m:ml-[5%] ">
             {credits
               .filter((credit) => {
                 return credit.popularity > 5;
@@ -35,9 +35,9 @@ export default function MoreDetailsPerson({ person, credits }: Props) {
               .map((credit, i) => {
                 return (
                   <React.Fragment key={i}>
-                    <li className="m-2 hover:border-2 hover:transform hover:scale-110 max-w-posterCard">
+                    <li className="m-2 hover:border-2 hover:transform hover:scale-110 max-w-posterCard mb-4">
                       <PosterCard prog={credit} />
-                      <p>{credit.character}</p>
+                      <p className="ml-2 ">{credit.character}</p>
                     </li>
                   </React.Fragment>
                 );

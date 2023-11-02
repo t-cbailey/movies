@@ -27,7 +27,7 @@ export default function ProgCarousel({ progArr, heading }: Props) {
           loop={true}
           spaceBetween={30}
           effect={"coverflow"}
-          pagination={{ clickable: true }}
+          // pagination={{ clickable: true }}
           modules={[EffectCoverflow, Pagination]}
           coverflowEffect={{
             rotate: 0,

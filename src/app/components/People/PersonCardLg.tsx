@@ -9,18 +9,18 @@ export default function PersonCardLg({ person }: Props) {
   const imgUrl = generateImgUrl(200, person.profile_path);
   return (
     <>
-      <div className="flex flex-row flex-wrap items-center">
+      <div className="flex m:flex-row m:flex-wrap m:items-center flex-col place-items-center s:max-m:text-center">
         <Image
-          className="ml-2"
+          className="m:ml-2"
           style={{ maxHeight: 300, maxWidth: "auto" }}
           src={imgUrl}
           alt={person.name}
           width={200}
           height={300}
         />
-        <section className="m-4 w-2/3">
-          <div className="flex flex-row flex-wrap items-end">
-            <h2 className="text text-6xl font-bold mr-4">{person.name}</h2>
+        <section className="m-4 m:w-2/3">
+          <div className="flex flex-row flex-wrap items-end s:max-m:justify-center">
+            <h2 className="text text-6xl font-bold m:mr-4">{person.name}</h2>
             <span className="text-base font-normal">
               {Math.round(person.popularity * 10) / 10} ❤️
             </span>

@@ -11,16 +11,16 @@ export const revalidate = 86000;
 export default function MovieDetails({ prog }: Props) {
   const imgUrl = generateImgUrl(200, prog.poster_path);
   return (
-    <div className="flex flex-row flex-wrap">
+    <div className="flex m:flex-row m:flex-wrap flex-col place-items-center">
       <Image
-        className="ml-2"
+        className="m:ml-2"
         src={imgUrl}
         alt={prog.title}
         width={200}
         height={300}
         style={{ width: "200px", height: "300px" }}
       />
-      <section className="m-4 w-2/3">
+      <section className="m-4 m:w-2/3">
         <div className="flex flex-row flex-wrap items-end">
           <h2 className="text text-6xl font-bold mr-4">{prog.title}</h2>
           <span className="text-base font-normal">
