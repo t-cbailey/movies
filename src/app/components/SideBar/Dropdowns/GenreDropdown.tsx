@@ -8,7 +8,7 @@ type Props = { genres: { movie: Genre[]; tv: Genre[] } };
 
 export default function GenreDropdown({ genres }: Props) {
   const itemClasses = {
-    title: "font-normal text-orange-600 hover:text-orange-300",
+    title: "s:text-2xl font-normal text-orange-600 hover:text-orange-300",
   };
 
   return (
@@ -17,7 +17,10 @@ export default function GenreDropdown({ genres }: Props) {
         <ul>
           {genres.movie.map((genre, i) => {
             return (
-              <li key={i} className="hover:text-orange-200">
+              <li
+                key={i}
+                className="s:text-xl hover:text-orange-200 overflow-scroll"
+              >
                 <Link
                   href={`/genres/movie/${genre.name.replaceAll(" ", "_")}`}
                 >{` ${genre.name}`}</Link>
@@ -30,7 +33,7 @@ export default function GenreDropdown({ genres }: Props) {
         <ul>
           {genres.tv.map((genre, i) => {
             return (
-              <li key={i} className="hover:text-orange-200">
+              <li key={i} className="s:text-xl hover:text-orange-200">
                 <Link
                   href={`/genres/tv/${genre.name.replaceAll(" ", "_")}`}
                 >{` ${genre.name}`}</Link>

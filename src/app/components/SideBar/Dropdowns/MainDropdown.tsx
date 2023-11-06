@@ -12,7 +12,7 @@ type Props = {
 
 export default function MainDropdown({ genres, trendingPeople }: Props) {
   const itemClasses = {
-    title: "font-normal text-orange-600 hover:text-orange-300",
+    title: "s:text-2xl font-normal text-orange-600 hover:text-orange-300",
   };
   return (
     <Accordion itemClasses={itemClasses}>
@@ -26,7 +26,9 @@ export default function MainDropdown({ genres, trendingPeople }: Props) {
               {trendingPeople.map((person, i) => {
                 return (
                   <Link key={i} href={`/person/${person.id}`}>
-                    <li className="hover:text-orange-200">{person.name}</li>
+                    <li className="hover:text-orange-200 s:text-xl">
+                      {person.name}
+                    </li>
                   </Link>
                 );
               })}
