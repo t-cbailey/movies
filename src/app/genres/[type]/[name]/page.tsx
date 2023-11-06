@@ -10,6 +10,15 @@ export function generateMetadata({ params: { type, name } }: Props) {
   return { title: `${name} ${type} ` };
 }
 
+export async function generateStaticParams() {
+  const data = await getGenres();
+  const mixedGenres = [...data.movie, ...data.tv];
+
+  return mixedGenres.map((genre) => ({
+    name: genre.name,
+  }));
+}
+
 export default async function PageByGenre({ params: { type, name } }: Props) {
   const genreName = name.replaceAll("_", " ").replaceAll("%26", "&");
   const genreList = await getGenres();
