@@ -10,6 +10,19 @@ export function generateMetadata({ params: { prog_id } }: Props) {
   return { title: `Programme with Id: ${prog_id} ` };
 }
 
+export async function generateStaticParams() {
+  const [discoverTv, trendingTv, popularTv]: Tv[][] = [
+    await getTvData("discover/tv", "tv"),
+    await getTvData("trending/tv/day", "tv"),
+    await getTvData("tv/top_rated", "tv"),
+  ];
+
+  const allTv = [...discoverTv, ...trendingTv, ...popularTv];
+  return allTv.map((prog) => {
+    return { prog_id: prog.id.toString() };
+  });
+}
+
 export default async function SingleProg({ params: { prog_id } }: Props) {
   const id = prog_id;
 
