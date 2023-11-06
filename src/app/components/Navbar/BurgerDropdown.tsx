@@ -29,7 +29,7 @@ export default function BurgerDropdown({ genres, trendingPeople }: Props) {
           </button>
 
           {isOpen && (
-            <div className=" origin-top-right h-screen absolute -right-4 mt-2 w-screen  bg-black opacity-90 overflow-scroll pb-10">
+            <div className=" origin-top-right h-screen absolute -right-4  mt-4 w-screen  bg-black opacity-90 overflow-scroll pb-10">
               <ul
                 role="menu"
                 aria-orientation="vertical"
