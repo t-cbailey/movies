@@ -17,7 +17,9 @@ export async function generateMetadata({
   const seasonData = await getTvData(`tv/${prog_id}/season/${season_id}`, "tv");
   const progData = await getTvData(`tv/${prog_id}`, "tv");
 
-  return { title: `${progData[0].name} ${seasonData[0].name}` };
+  if (seasonData && progData) {
+    return { title: `${progData[0].name} ${seasonData[0].name}` };
+  } else return { title: "Not Found" };
 }
 
 export default async function SingleSeason({
