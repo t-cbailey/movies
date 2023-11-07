@@ -6,8 +6,10 @@ import MovieDetails from "@/app/components/Movies/MovieCardLg";
 
 type Props = { params: { id: string } };
 
-export function generateMetadata({ params: { id } }: Props) {
-  return { title: `Movie with id: ${id} ` };
+export async function generateMetadata({ params: { id } }: Props) {
+  const progData = await getMovieData(`movie/${id}`, "movie");
+  if (progData) return { title: `${progData[0].title}` };
+  else return { title: "Not Found" };
 }
 
 const revalidate = 86000;
