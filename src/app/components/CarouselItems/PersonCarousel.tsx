@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
@@ -28,12 +28,12 @@ export default function PersonCarousel({ personArr, heading }: Props) {
           spaceBetween={30}
           effect={"coverflow"}
           pagination={{ clickable: true }}
-          modules={[EffectCoverflow, Pagination]}
+          modules={[EffectCoverflow]}
           coverflowEffect={{
             rotate: 0,
             slideShadows: true,
           }}
-          centeredSlides={true}
+          centeredSlides={false}
           freeMode={true}
           className="  coverflow"
         >

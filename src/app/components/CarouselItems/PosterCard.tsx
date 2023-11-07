@@ -1,12 +1,11 @@
 "use client";
-import { Credit, Movie, Prog, Tv } from "@/types";
+import { Credit, Movie, Tv } from "@/types";
 import generateImgUrl from "@/utils/images/generateImgUrl";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import fallbackImg from "../../../../public/fallbackImg.png";
 import LoadingSpinner from "../LoadingSpinner";
-import { relative } from "path";
 
 type Props = { prog: Tv | Movie | Credit };
 
@@ -17,8 +16,9 @@ export default function PosterCard({ prog }: Props) {
 
   let imgUrl = "";
 
-  if (prog.backdrop_path) imgUrl = generateImgUrl(200, prog.backdrop_path);
-  if (prog.poster_path) imgUrl = generateImgUrl(200, prog.poster_path);
+  if (prog.poster_path) {
+    imgUrl = generateImgUrl(200, prog.poster_path);
+  } else imgUrl = "/../../../../public/fallbackImg.png";
 
   const fallback = fallbackImg,
     alt = "progImg",
@@ -45,10 +45,10 @@ export default function PosterCard({ prog }: Props) {
           height={300}
           onLoad={onImageLoad}
           style={{
-            width: "200px",
-            height: "auto",
             zIndex: 2,
             position: "relative",
+            width: "200px",
+            height: "300px",
           }}
         />
 

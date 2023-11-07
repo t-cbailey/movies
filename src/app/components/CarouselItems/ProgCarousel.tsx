@@ -4,7 +4,7 @@ import React from "react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "../../../../style.css";
 import PosterCard from "./PosterCard";
@@ -32,7 +32,7 @@ export default function ProgCarousel({ progArr, heading }: Props) {
             rotate: 0,
             slideShadows: true,
           }}
-          centeredSlides={true}
+          centeredSlides={false}
           freeMode={true}
           className="  coverflow"
         >

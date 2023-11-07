@@ -1,9 +1,8 @@
 import React from "react";
-import { Genre, Prog, ProgType, Tv } from "@/types";
+import { Genre, Prog, ProgType } from "@/types";
 import { getTvData, getMovieData } from "@/lib/getData";
 import PosterCard from "@/app/components/CarouselItems/PosterCard";
 import { getGenres } from "@/lib/getGenres";
-import { divider } from "@nextui-org/theme";
 
 type Props = { params: { type: ProgType; name: string } };
 
@@ -33,6 +32,10 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
   const genreId = genreArr.find((genre) => {
     return genreName === genre.name;
   })?.id;
+  if (!genreId)
+    return (
+      <h2 className="mt-24">{`Nothing found with genre "${genreName}"`}</h2>
+    );
 
   let progs: Prog[] = [];
 
@@ -45,11 +48,6 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
   if (type === "tv") {
     progs = await getTvData(`/discover/${type}?with_genres=${genreId}`, type);
   }
-
-  if (!genreId)
-    return (
-      <h2 className="mt-24">{`Nothing found with genre "${genreName}"`}</h2>
-    );
 
   if (progs) {
     return (
