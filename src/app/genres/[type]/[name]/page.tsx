@@ -7,7 +7,7 @@ import { getGenres } from "@/lib/getGenres";
 type Props = { params: { type: ProgType; name: string } };
 
 export function generateMetadata({ params: { type, name } }: Props) {
-  return { title: `${name} ${type} ` };
+  return { title: `${name} ${type}${type === "movie" ? "s" : ""}` };
 }
 
 export async function generateStaticParams() {

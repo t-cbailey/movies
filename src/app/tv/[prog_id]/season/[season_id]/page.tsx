@@ -11,8 +11,13 @@ type Props = {
   };
 };
 
-export function generateMetadata({ params: { season_id, prog_id } }: Props) {
-  return { title: `Programme id: ${prog_id} season: ${season_id} ` };
+export async function generateMetadata({
+  params: { season_id, prog_id },
+}: Props) {
+  const seasonData = await getTvData(`tv/${prog_id}/season/${season_id}`, "tv");
+  const progData = await getTvData(`tv/${prog_id}`, "tv");
+
+  return { title: `${progData[0].name} ${seasonData[0].name}` };
 }
 
 export default async function SingleSeason({

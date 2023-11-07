@@ -6,8 +6,9 @@ import React from "react";
 
 type Props = { params: { prog_id: string } };
 
-export function generateMetadata({ params: { prog_id } }: Props) {
-  return { title: `Programme with Id: ${prog_id} ` };
+export async function generateMetadata({ params: { prog_id } }: Props) {
+  const progData = await getTvData(`tv/${prog_id}`, "tv");
+  return { title: `${progData[0].name} ` };
 }
 
 export async function generateStaticParams() {
