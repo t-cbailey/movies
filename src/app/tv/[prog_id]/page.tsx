@@ -8,7 +8,9 @@ type Props = { params: { prog_id: string } };
 
 export async function generateMetadata({ params: { prog_id } }: Props) {
   const progData = await getTvData(`tv/${prog_id}`, "tv");
-  return { title: `${progData[0].name} ` };
+  if (progData) {
+    return { title: `${progData[0].name} ` };
+  } else return { title: "Not Found" };
 }
 
 const revalidate = 86000;
