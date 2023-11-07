@@ -10,6 +10,8 @@ export function generateMetadata({ params: { id } }: Props) {
   return { title: `Movie with id: ${id} ` };
 }
 
+const revalidate = 86000;
+
 export async function generateStaticParams() {
   const [discoverMovies, trendingMovies, popularMovies]: Movie[][] = [
     await getMovieData("discover/movie", "movie"),

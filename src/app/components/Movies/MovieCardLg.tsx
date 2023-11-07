@@ -6,8 +6,6 @@ import Link from "next/link";
 
 type Props = { prog: Movie };
 
-export const revalidate = 86000;
-
 export default function MovieDetails({ prog }: Props) {
   const imgUrl = generateImgUrl(200, prog.poster_path);
   return (

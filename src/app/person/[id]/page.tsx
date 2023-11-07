@@ -11,6 +11,8 @@ export async function generateMetadata({ params: { id } }: Params) {
   return { title: `${person[0].name} ` };
 }
 
+const revalidate = 86000;
+
 export async function generateStaticParams() {
   const people: Person[] = await getPersonData("trending/person/day", "person");
   return people.map((person) => {

@@ -2,8 +2,6 @@ import React from "react";
 import "../../style.css";
 import Trending from "./components/Trending";
 
-export const revalidate = 86400;
-
 export function generateMetadata() {
   return { title: "Information about Movies, Tv and People." };
 }

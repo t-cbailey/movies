@@ -4,8 +4,6 @@ import { Genre, Person } from "@/types";
 import MainDropdown from "./Dropdowns/MainDropdown";
 import { getPersonData } from "@/lib/getData";
 
-export const revalidate = 86000;
-
 export default async function Sidebar() {
   const genres: { movie: Genre[]; tv: Genre[] } = await getGenres();
   const trendingPeople: Person[] = await getPersonData(

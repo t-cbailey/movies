@@ -11,6 +11,8 @@ export async function generateMetadata({ params: { prog_id } }: Props) {
   return { title: `${progData[0].name} ` };
 }
 
+const revalidate = 86000;
+
 export async function generateStaticParams() {
   const [discoverTv, trendingTv, popularTv]: Tv[][] = [
     await getTvData("discover/tv", "tv"),

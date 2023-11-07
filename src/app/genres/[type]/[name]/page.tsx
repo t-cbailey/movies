@@ -10,6 +10,8 @@ export function generateMetadata({ params: { type, name } }: Props) {
   return { title: `${name} ${type}${type === "movie" ? "s" : ""}` };
 }
 
+const revalidate = 86000;
+
 export async function generateStaticParams() {
   const data = await getGenres();
   const mixedGenres = [...data.movie, ...data.tv];
