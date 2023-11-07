@@ -35,10 +35,9 @@ export default function PosterCard({ prog }: Props) {
   return (
     <>
       <Link href={`/${type}/${prog.id}`}>
-        <div className="w-[200px] h-[300px]">
+        <div>
           {loading && <LoadingSpinner />}
           <Image
-            placeholder="empty"
             onError={setError}
             src={error ? fallback : src}
             alt={alt}
@@ -46,10 +45,10 @@ export default function PosterCard({ prog }: Props) {
             height={300}
             onLoad={onImageLoad}
             style={{
-              zIndex: 2,
+              zIndex: 1,
               position: "relative",
               width: "200px",
-              height: "300px",
+              height: "auto",
             }}
           />
         </div>

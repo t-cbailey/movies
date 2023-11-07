@@ -28,21 +28,23 @@ export default function PersonCard({ person }: Props) {
 
   return (
     <Link href={`/person/${person.id}`}>
-      {loading && <LoadingSpinner />}
-      <Image
-        onError={setError}
-        src={error ? fallback : src}
-        alt={alt}
-        width={200}
-        height={300}
-        onLoad={onImageLoad}
-        style={{
-          width: "200px",
-          height: "auto",
-          zIndex: 2,
-          position: "relative",
-        }}
-      />
+      <div>
+        {loading && <LoadingSpinner />}
+        <Image
+          onError={setError}
+          src={error ? fallback : src}
+          alt={alt}
+          width={200}
+          height={300}
+          onLoad={onImageLoad}
+          style={{
+            width: "200px",
+            height: "auto",
+            zIndex: 1,
+            position: "relative",
+          }}
+        />
+      </div>
       <h4 className="text-white w-4/5 pl-2 pt-2 text-sm line-clamp-3  text-ellipsis">
         {person.name}
       </h4>
