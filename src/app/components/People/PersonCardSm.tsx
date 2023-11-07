@@ -14,9 +14,9 @@ export default function PersonCardSm({ person, imgUrl }: Props) {
             priority={true}
             src={imgUrl}
             width={100}
-            height={200}
+            height={150}
             alt={person.name}
-            className="rounded-full"
+            className="rounded-full "
           />
           <div className="ml-4">
             <h2 className="text-base">{person.name}</h2>
