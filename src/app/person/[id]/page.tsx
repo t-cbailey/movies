@@ -17,11 +17,12 @@ const revalidate = 86000;
 
 export async function generateStaticParams() {
   const people: Person[] = await getPersonData("trending/person/day", "person");
+
   if (people) {
     return people.map((person) => {
       return { id: person.id.toString() };
     });
-  }
+  } else return [];
 }
 
 export default async function Page({ params: { id } }: Params) {
