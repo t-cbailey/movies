@@ -8,21 +8,28 @@ type Params = { params: { id: string } };
 
 export async function generateMetadata({ params: { id } }: Params) {
   const person = await getPersonData(`person/${id}`, "person");
-  return { title: `${person[0].name} ` };
+  if (person) {
+    return { title: `${person[0].name} ` };
+  } else return { title: `Not Found` };
 }
 
 const revalidate = 86000;
 
 export async function generateStaticParams() {
   const people: Person[] = await getPersonData("trending/person/day", "person");
-  return people.map((person) => {
-    return { id: person.id.toString() };
-  });
+  if (people) {
+    return people.map((person) => {
+      return { id: person.id.toString() };
+    });
+  }
 }
 
 export default async function Page({ params: { id } }: Params) {
-  const fetchData = getPersonData(`person/${id}`, "person");
-  const person = await fetchData;
+  const person = await getPersonData(`person/${id}`, "person");
+
+  if (!person) {
+    return <p className="mt-24">Content for id:{id} Not Found</p>;
+  }
 
   const fetchMovieCreditData = getCastData(
     `person/${id}/movie_credits`,
