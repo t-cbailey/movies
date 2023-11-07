@@ -35,7 +35,7 @@ export default function PosterCard({ prog }: Props) {
   return (
     <>
       <Link href={`/${type}/${prog.id}`}>
-        <div>
+        <div className="max-w-full h-auto ">
           {loading && <LoadingSpinner />}
           <Image
             onError={setError}

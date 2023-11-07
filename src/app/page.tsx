@@ -9,7 +9,7 @@ export function generateMetadata() {
 export default async function Home() {
   return (
     <>
-      <section>
+      <section className="text-white">
         <h2 className="mt-24 ml-2 text-2xl text-orange-200 font-bold">
           What to Watch
         </h2>

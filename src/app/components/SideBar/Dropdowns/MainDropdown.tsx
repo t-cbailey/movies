@@ -26,7 +26,7 @@ export default function MainDropdown({ genres, trendingPeople }: Props) {
               {trendingPeople.map((person, i) => {
                 return (
                   <Link key={i} href={`/person/${person.id}`}>
-                    <li className="hover:text-orange-200 s:text-xl">
+                    <li className="hover:text-orange-200 s:text-xl text-white">
                       {person.name}
                     </li>
                   </Link>
