@@ -10,7 +10,6 @@ import LoadingSpinner from "../LoadingSpinner";
 type Props = { person: Person };
 
 export default function PersonCard({ person }: Props) {
-  const { type } = person;
   const [loading, setLoading] = React.useState(true);
   const [error, setError]: any = React.useState(null);
   const imgUrl = generateImgUrl(200, person.profile_path);
@@ -26,6 +25,7 @@ export default function PersonCard({ person }: Props) {
   React.useEffect(() => {
     setError(null);
   }, [src]);
+
   return (
     <Link href={`/person/${person.id}`}>
       {loading && <LoadingSpinner />}

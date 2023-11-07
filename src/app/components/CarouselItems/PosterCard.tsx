@@ -21,7 +21,7 @@ export default function PosterCard({ prog }: Props) {
   if (prog.poster_path) imgUrl = generateImgUrl(200, prog.poster_path);
 
   const fallback = fallbackImg,
-    alt = "prog.name",
+    alt = "progImg",
     src = imgUrl;
 
   function onImageLoad() {

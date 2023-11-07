@@ -18,17 +18,15 @@ export default async function Search({ params: { query } }: Props) {
 
   const [movies, tv, person] = await Promise.all([movieRes, tvRes, personRes]);
 
-  if (movies && tv && person) {
-    return (
-      <>
-        <h2 className="mt-24 text-2xl ml-4">
-          <span className="text-orange-400">Results for </span> &quot;
-          {query.replaceAll("%20", " ")}&quot;
-        </h2>
-        <ProgCarousel progArr={movies} heading="Movies" />
-        <ProgCarousel progArr={tv} heading="Tv" />
-        <PersonCarousel personArr={person} heading="People" />
-      </>
-    );
-  }
+  return (
+    <>
+      <h2 className="mt-24 text-2xl ml-4">
+        <span className="text-orange-400">Results for </span> &quot;
+        {query.replaceAll("%20", " ")}&quot;
+      </h2>
+      {movies && <ProgCarousel progArr={movies} heading="Movies" />}
+      {tv && <ProgCarousel progArr={tv} heading="Tv" />}
+      {person && <PersonCarousel personArr={person} heading="People" />}
+    </>
+  );
 }

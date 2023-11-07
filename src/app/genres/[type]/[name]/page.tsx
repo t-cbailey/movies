@@ -3,6 +3,7 @@ import { Genre, Prog, ProgType, Tv } from "@/types";
 import { getTvData, getMovieData } from "@/lib/getData";
 import PosterCard from "@/app/components/CarouselItems/PosterCard";
 import { getGenres } from "@/lib/getGenres";
+import { divider } from "@nextui-org/theme";
 
 type Props = { params: { type: ProgType; name: string } };
 
@@ -15,7 +16,6 @@ const revalidate = 86000;
 export async function generateStaticParams() {
   const data = await getGenres();
   const mixedGenres = [...data.movie, ...data.tv];
-
   return mixedGenres.map((genre) => ({
     name: genre.name,
   }));
@@ -23,6 +23,10 @@ export async function generateStaticParams() {
 
 export default async function PageByGenre({ params: { type, name } }: Props) {
   const genreName = name.replaceAll("_", " ").replaceAll("%26", "&");
+  const greenlist = ["movie", "tv"];
+  if (!greenlist.includes(type)) {
+    return <h1 className="mt-24">Genre Not Found</h1>;
+  }
   const genreList = await getGenres();
   const mediaType = type as keyof typeof genreList;
   const genreArr: Genre[] = genreList[mediaType];
