@@ -36,16 +36,12 @@ export default function BurgerDropdown({ genres, trendingPeople }: Props) {
                 aria-labelledby="options-menu"
               >
                 <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 "
-                    onClick={closeDropdown}
-                  >
+                  <div className="block px-4 py-2 " onClick={closeDropdown}>
                     <MainDropdown
                       genres={genres}
                       trendingPeople={trendingPeople}
                     />
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>
