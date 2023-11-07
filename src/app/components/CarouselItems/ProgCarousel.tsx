@@ -27,8 +27,7 @@ export default function ProgCarousel({ progArr, heading }: Props) {
           loop={true}
           spaceBetween={30}
           effect={"coverflow"}
-          // pagination={{ clickable: true }}
-          modules={[EffectCoverflow, Pagination]}
+          modules={[EffectCoverflow]}
           coverflowEffect={{
             rotate: 0,
             slideShadows: true,
@@ -45,7 +44,7 @@ export default function ProgCarousel({ progArr, heading }: Props) {
             })
             .map((prog: Prog) => {
               return (
-                <SwiperSlide key={prog.id} className=" bg-black ">
+                <SwiperSlide key={prog.id} className=" bg-black">
                   <PosterCard prog={prog} />
                 </SwiperSlide>
               );

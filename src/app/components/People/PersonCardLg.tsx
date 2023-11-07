@@ -9,7 +9,7 @@ export default function PersonCardLg({ person }: Props) {
   const imgUrl = generateImgUrl(200, person.profile_path);
   return (
     <>
-      <div className="flex m:flex-row m:flex-wrap m:items-center flex-col place-items-center s:max-m:text-center">
+      <div className="flex m:flex-row m:flex-wrap m:items-center flex-col place-items-center s:max-m:justify-center text-center">
         <Image
           className="m:ml-2"
           style={{ maxHeight: 300, maxWidth: "auto" }}

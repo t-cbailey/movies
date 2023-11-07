@@ -5,11 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import fallbackImg from "../../../../public/fallbackImg.png";
+import LoadingSpinner from "../LoadingSpinner";
+import { relative } from "path";
 
 type Props = { prog: Tv | Movie | Credit };
 
 export default function PosterCard({ prog }: Props) {
   const { type } = prog;
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError]: any = React.useState(null);
 
   let imgUrl = "";
 
@@ -20,7 +24,9 @@ export default function PosterCard({ prog }: Props) {
     alt = "prog.name",
     src = imgUrl;
 
-  const [error, setError]: any = React.useState(null);
+  function onImageLoad() {
+    setLoading(false);
+  }
 
   React.useEffect(() => {
     setError(null);
@@ -29,6 +35,7 @@ export default function PosterCard({ prog }: Props) {
   return (
     <>
       <Link href={`/${type}/${prog.id}`}>
+        {loading && <LoadingSpinner />}
         <Image
           placeholder="empty"
           onError={setError}
@@ -36,7 +43,13 @@ export default function PosterCard({ prog }: Props) {
           alt={alt}
           width={200}
           height={300}
-          style={{ width: "200px", height: "auto" }}
+          onLoad={onImageLoad}
+          style={{
+            width: "200px",
+            height: "auto",
+            zIndex: 2,
+            position: "relative",
+          }}
         />
 
         <h4 className="text-white w-4/5 pl-2 pt-2 text-sm line-clamp-3  text-ellipsis">

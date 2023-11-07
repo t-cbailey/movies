@@ -6,13 +6,13 @@ import { Tv, Movie, Person } from "@/types";
 
 type Params = { params: { id: string } };
 
-export function generateMetadata({ params: { id } }: Params) {
-  return { title: `Person with Id: ${id} ` };
+export async function generateMetadata({ params: { id } }: Params) {
+  const person = await getPersonData(`person/${id}`, "person");
+  return { title: `${person[0].name} ` };
 }
 
 export async function generateStaticParams() {
   const people: Person[] = await getPersonData("trending/person/day", "person");
-
   return people.map((person) => {
     return { id: person.id.toString() };
   });
