@@ -35,22 +35,24 @@ export default function PosterCard({ prog }: Props) {
   return (
     <>
       <Link href={`/${type}/${prog.id}`}>
-        {loading && <LoadingSpinner />}
-        <Image
-          placeholder="empty"
-          onError={setError}
-          src={error ? fallback : src}
-          alt={alt}
-          width={200}
-          height={300}
-          onLoad={onImageLoad}
-          style={{
-            zIndex: 2,
-            position: "relative",
-            width: "200px",
-            height: "300px",
-          }}
-        />
+        <div className="w-[200px] h-[300px]">
+          {loading && <LoadingSpinner />}
+          <Image
+            placeholder="empty"
+            onError={setError}
+            src={error ? fallback : src}
+            alt={alt}
+            width={200}
+            height={300}
+            onLoad={onImageLoad}
+            style={{
+              zIndex: 2,
+              position: "relative",
+              width: "200px",
+              height: "300px",
+            }}
+          />
+        </div>
 
         <h4 className="text-white w-4/5 pl-2 pt-2 text-sm line-clamp-3  text-ellipsis">
           {type === "movie" ? prog.title : prog.name}
