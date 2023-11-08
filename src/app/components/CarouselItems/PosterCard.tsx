@@ -38,6 +38,7 @@ export default function PosterCard({ prog }: Props) {
         <div className="max-w-full h-auto relative">
           {loading && <LoadingSpinner />}
           <Image
+            unoptimized={true}
             onError={setError}
             src={error ? fallback : src}
             alt={alt}

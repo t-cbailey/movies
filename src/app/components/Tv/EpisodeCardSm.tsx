@@ -9,6 +9,7 @@ export default function EpisodeCardSm({ episode, imgUrl }: Props) {
     <>
       <div className="flex flex-row flex-wrap m-4 w-full">
         <Image
+          unoptimized={true}
           className="ml-2 self-center"
           src={imgUrl}
           alt={episode.name}

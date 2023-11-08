@@ -11,6 +11,7 @@ export default function PersonCardSm({ person, imgUrl }: Props) {
       <Link href={`/person/${person.id}`}>
         <section className=" flex flex-row items-center mb-4 hover:bg-gray-900">
           <Image
+            unoptimized={true}
             priority={true}
             src={imgUrl}
             width={100}

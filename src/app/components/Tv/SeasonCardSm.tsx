@@ -38,6 +38,7 @@ export default function SeasonCardSm({ season, imgUrl, prog }: Props) {
       >
         <section className=" flex flex-row items-center mb-4 hover:bg-gray-900">
           <Image
+            unoptimized={true}
             onError={setError}
             src={error ? fallback : src}
             priority={true}

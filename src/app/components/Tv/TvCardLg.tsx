@@ -11,6 +11,7 @@ export default function TvCardLg({ prog }: Props) {
   return (
     <div className="flex m:flex-row m:flex-wrap flex-col place-items-center">
       <Image
+        unoptimized={true}
         src={imgUrl}
         alt={prog.name}
         width={200}

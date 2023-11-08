@@ -11,6 +11,7 @@ export default function PersonCardLg({ person }: Props) {
     <>
       <div className="flex m:flex-row m:flex-wrap m:items-center flex-col place-items-center s:justify-center s:text-center m:justify-start m:text-left">
         <Image
+          unoptimized={true}
           className="m:ml-2"
           style={{ maxHeight: 300, maxWidth: "auto" }}
           src={imgUrl}

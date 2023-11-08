@@ -13,6 +13,7 @@ export default function SeasonCardLg({ season }: Props) {
   return (
     <div className="flex m:flex-row m:flex-wrap flex-col place-items-center">
       <Image
+        unoptimized={true}
         src={imgUrl}
         alt={season.name}
         width={200}

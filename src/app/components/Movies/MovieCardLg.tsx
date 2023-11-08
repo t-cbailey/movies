@@ -11,6 +11,7 @@ export default function MovieDetails({ prog }: Props) {
   return (
     <div className="flex m:flex-row m:flex-wrap flex-col place-items-center">
       <Image
+        unoptimized={true}
         className="m:ml-2"
         src={imgUrl}
         alt={prog.title}
