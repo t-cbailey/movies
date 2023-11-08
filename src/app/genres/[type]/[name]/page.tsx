@@ -60,7 +60,7 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
             {progs.map((prog) => {
               return (
                 <React.Fragment key={prog.id}>
-                  <li className="m-2 hover:border-2 hover:transform hover:scale-110 max-w-posterCard">
+                  <li className="m-2 hover:border-2 hover:transform hover:scale-110 s:max-w-[40%] m:max-w-posterCard">
                     <PosterCard prog={prog} />
                   </li>
                 </React.Fragment>
