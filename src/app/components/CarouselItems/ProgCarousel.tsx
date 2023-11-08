@@ -15,7 +15,7 @@ export default function ProgCarousel({ progArr, heading }: Props) {
   return (
     <>
       <section className="mt-12 mx-10">
-        <h3 className="text-orange-400 border-l-4 pl-2 border-orange-100 text-xl font-light">
+        <h3 className="text-orange-400 border-l-4 pl-2 border-orange-100 text-xl font-light s:mb-2">
           {heading}
         </h3>
         <Swiper
