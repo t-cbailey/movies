@@ -30,9 +30,10 @@ export default function MovieDetails({ prog }: Props) {
         <p className="mt-4">{prog.overview}</p>
         <div className="flex flex-row mt-4 flex-wrap">
           {prog.genres.map((genre, i) => {
+            const genreLink = genre.name.replaceAll(" ", "_");
             return (
               <React.Fragment key={i}>
-                <Link href={`/genres/${prog.type}/${genre.name}`}>
+                <Link href={`/genres/${prog.type}/${genreLink}`}>
                   <p className="m-2 p-1 border border-orange-400 rounded-full ">
                     {genre.name}
                   </p>
