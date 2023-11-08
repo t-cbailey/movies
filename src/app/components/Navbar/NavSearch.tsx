@@ -15,12 +15,13 @@ export default function NavSearch() {
   };
 
   return (
-    <form className="my-2 mx-4">
+    <form className="my-2 mx-4 s:flex-grow l:flex-initial">
       <input
         type="text"
         placeholder="Search"
-        className="rounded-l-lg focus:outline-none p-2 hover:bg-slate-50 text-black"
+        className="rounded-l-lg focus:outline-none p-2 hover:bg-slate-50 text-black s:w-[60%]"
         onChange={handleInputChange}
+        name="searchBar"
       />
       <button
         className="bg-white rounded-r-lg p-2  hover:bg-slate-50"

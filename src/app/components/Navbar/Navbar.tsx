@@ -13,7 +13,7 @@ export async function Navbar() {
     "person"
   );
   return (
-    <nav className="flex flex-row l:justify-around top-0 fixed w-screen h-16  border-b border-slate-800 items-center z-50 bg-black flex-nowrap">
+    <nav className="flex flex-row l:justify-around top-0 fixed w-screen h-16  border-b border-slate-800 items-center z-50 bg-black">
       <Link href="/">
         <h1 className="text-orange-400 text-l m:text-3xl mx-2 m:mx-5 m:my-4 border p-1 hover:border-orange-400 hover:text-white">
           TMD
