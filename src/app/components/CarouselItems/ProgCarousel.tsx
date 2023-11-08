@@ -20,8 +20,8 @@ export default function ProgCarousel({ progArr, heading }: Props) {
         </h3>
         <Swiper
           breakpoints={{
-            300: { slidesPerView: 2 },
-            768: { slidesPerView: 4 },
+            300: { slidesPerView: 2, effect: "slide" },
+            768: { slidesPerView: 4, effect: "coverflow" },
             1024: { slidesPerView: 5 },
           }}
           loop={true}

@@ -21,12 +21,11 @@ export default function PersonCarousel({ personArr, heading }: Props) {
         <Swiper
           loop={true}
           breakpoints={{
-            300: { slidesPerView: 2 },
-            768: { slidesPerView: 4 },
+            300: { slidesPerView: 2, effect: "slide" },
+            768: { slidesPerView: 4, effect: "coverflow" },
             1024: { slidesPerView: 5 },
           }}
           spaceBetween={30}
-          effect={"coverflow"}
           pagination={{ clickable: true }}
           modules={[EffectCoverflow]}
           coverflowEffect={{
