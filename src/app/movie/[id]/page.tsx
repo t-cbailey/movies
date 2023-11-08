@@ -3,7 +3,7 @@ import { getMovieData, getCastData } from "@/lib/getData";
 import { Movie, Credit } from "@/types";
 import MoreDetailsMov from "@/app/components/Movies/MoreDetailsMov";
 import MovieDetails from "@/app/components/Movies/MovieCardLg";
-import BackToHome from "@/app/components/BackToHome";
+import Back from "@/app/components/Back";
 
 type Props = { params: { id: string } };
 
@@ -41,7 +41,7 @@ export default async function SingleProg({ params: { id } }: Props) {
 
   const content = (
     <>
-      <BackToHome />
+      <Back />
       <div className=" text white flex flex-row flex-wrap m:max-l:ml-4 ">
         <MovieDetails prog={prog} />
       </div>

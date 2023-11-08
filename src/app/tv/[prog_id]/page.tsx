@@ -3,8 +3,7 @@ import TvCardLg from "@/app/components/Tv/TvCardLg";
 import { getCastData, getTvData } from "@/lib/getData";
 import { Credit, Tv } from "@/types";
 import React from "react";
-import BackToHome from "@/app/components/BackToHome";
-
+import Back from "@/app/components/Back";
 type Props = { params: { prog_id: string } };
 
 export async function generateMetadata({ params: { prog_id } }: Props) {
@@ -42,7 +41,7 @@ export default async function SingleProg({ params: { prog_id } }: Props) {
 
   const content = (
     <>
-      <BackToHome />
+      <Back />
       <section className=" ml-4">
         <TvCardLg prog={prog} />
       </section>

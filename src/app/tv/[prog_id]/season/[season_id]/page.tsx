@@ -3,7 +3,7 @@ import { Credit, Season } from "@/types";
 import React from "react";
 import SeasonCardLg from "@/app/components/Tv/SeasonCardLg";
 import MoreDetailsSeason from "@/app/components/Tv/MoreDetailsSeason";
-import BackToHome from "@/app/components/BackToHome";
+import Back from "@/app/components/Back";
 
 type Props = {
   params: {
@@ -39,7 +39,7 @@ export default async function SingleSeason({
 
   const content = (
     <>
-      <BackToHome />
+      <Back />
       <section className=" ml-4">
         <SeasonCardLg season={season} />
       </section>

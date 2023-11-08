@@ -3,6 +3,7 @@ import { Genre, Prog, ProgType } from "@/types";
 import { getTvData, getMovieData } from "@/lib/getData";
 import PosterCard from "@/app/components/CarouselItems/PosterCard";
 import { getGenres } from "@/lib/getGenres";
+import Back from "@/app/components/Back";
 
 type Props = { params: { type: ProgType; name: string } };
 
@@ -50,6 +51,7 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
   if (progs) {
     return (
       <>
+        <Back />
         <section className="ml-2">
           <h2 className=" mb-4 text-3xl text-orange-300">
             {`${genreName} ${type === "tv" ? "Programmes" : "Movies"}`}

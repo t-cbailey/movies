@@ -3,6 +3,7 @@ import React from "react";
 import { getPersonData, getCastData } from "@/lib/getData";
 import MoreDetailsPerson from "@/app/components/People/MoreDetailsPerson";
 import { Tv, Movie, Person } from "@/types";
+import Back from "@/app/components/Back";
 
 type Params = { params: { id: string } };
 
@@ -43,6 +44,7 @@ export default async function Page({ params: { id } }: Params) {
 
   return (
     <>
+      <Back />
       <section className=" ml-4">
         <PersonCardLg person={person[0]} />
       </section>
