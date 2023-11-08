@@ -2,6 +2,7 @@ import { getMovieData, getTvData, getPersonData } from "@/lib/getData";
 import React from "react";
 import PersonCarousel from "@/app/components/CarouselItems/PersonCarousel";
 import ProgCarousel from "@/app/components/CarouselItems/ProgCarousel";
+import BackToHome from "@/app/components/BackToHome";
 
 type Props = { params: { query: string } };
 
@@ -20,7 +21,8 @@ export default async function Search({ params: { query } }: Props) {
 
   return (
     <>
-      <h2 className="mt-24 text-2xl ml-4">
+      <BackToHome />
+      <h2 className=" text-2xl ml-4">
         <span className="text-orange-400">Results for </span> &quot;
         {query.replaceAll("%20", " ")}&quot;
       </h2>

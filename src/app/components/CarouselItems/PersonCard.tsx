@@ -28,7 +28,7 @@ export default function PersonCard({ person }: Props) {
 
   return (
     <Link href={`/person/${person.id}`}>
-      <div className="max-w-full h-[200px] relative">
+      <div className="max-w-full h-auto relative">
         {loading && <LoadingSpinner />}
         <Image
           onError={setError}

@@ -24,7 +24,7 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
   const genreName = name.replaceAll("_", " ").replaceAll("%26", "&");
   const greenlist = ["movie", "tv"];
   if (!greenlist.includes(type)) {
-    return <h1 className="mt-24">Genre Not Found</h1>;
+    return <h1 className="">Genre Not Found</h1>;
   }
   const genreList = await getGenres();
   const mediaType = type as keyof typeof genreList;
@@ -33,9 +33,7 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
     return genreName === genre.name;
   })?.id;
   if (!genreId)
-    return (
-      <h2 className="mt-24">{`Nothing found with genre "${genreName}"`}</h2>
-    );
+    return <h2 className="">{`Nothing found with genre "${genreName}"`}</h2>;
 
   let progs: Prog[] = [];
 
@@ -53,7 +51,7 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
     return (
       <>
         <section className="ml-2">
-          <h2 className="mt-24 mb-4 text-3xl text-orange-300">
+          <h2 className=" mb-4 text-3xl text-orange-300">
             {`${genreName} ${type === "tv" ? "Programmes" : "Movies"}`}
           </h2>
           <ul className="flex flex-row flex-wrap justify-center">

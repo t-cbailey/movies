@@ -3,6 +3,7 @@ import { Credit, Season } from "@/types";
 import React from "react";
 import SeasonCardLg from "@/app/components/Tv/SeasonCardLg";
 import MoreDetailsSeason from "@/app/components/Tv/MoreDetailsSeason";
+import BackToHome from "@/app/components/BackToHome";
 
 type Props = {
   params: {
@@ -29,7 +30,7 @@ export default async function SingleSeason({
 
   const progData = await getTvData(`tv/${prog_id}/season/${season_id}`, "tv");
   if (!progData) {
-    return <p className="mt-24">Content for id:{id} Not Found</p>;
+    return <p className="">Content for id:{id} Not Found</p>;
   }
 
   const season: Season = progData[0];
@@ -38,7 +39,8 @@ export default async function SingleSeason({
 
   const content = (
     <>
-      <section className="mt-24 ml-4">
+      <BackToHome />
+      <section className=" ml-4">
         <SeasonCardLg season={season} />
       </section>
       <section className="m-4">

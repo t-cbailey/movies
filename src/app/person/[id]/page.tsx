@@ -29,7 +29,7 @@ export default async function Page({ params: { id } }: Params) {
   const person = await getPersonData(`person/${id}`, "person");
 
   if (!person) {
-    return <p className="mt-24">Content for id:{id} Not Found</p>;
+    return <p className="">Content for id:{id} Not Found</p>;
   }
 
   const fetchMovieCreditData = getCastData(
@@ -43,7 +43,7 @@ export default async function Page({ params: { id } }: Params) {
 
   return (
     <>
-      <section className="mt-24 ml-4">
+      <section className=" ml-4">
         <PersonCardLg person={person[0]} />
       </section>
       <section className=" ml-4 mr-4">

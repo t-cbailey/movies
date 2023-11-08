@@ -3,6 +3,7 @@ import { getMovieData, getCastData } from "@/lib/getData";
 import { Movie, Credit } from "@/types";
 import MoreDetailsMov from "@/app/components/Movies/MoreDetailsMov";
 import MovieDetails from "@/app/components/Movies/MovieCardLg";
+import BackToHome from "@/app/components/BackToHome";
 
 type Props = { params: { id: string } };
 
@@ -30,7 +31,7 @@ export async function generateStaticParams() {
 export default async function SingleProg({ params: { id } }: Props) {
   const progData = await getMovieData(`movie/${id}`, "movie");
   if (!progData) {
-    return <p className="mt-24">Content for id:{id} Not Found</p>;
+    return <p className="">Content for id:{id} Not Found</p>;
   }
   const prog: Movie = progData[0];
   const cast: Credit[] = await getCastData(
@@ -40,7 +41,8 @@ export default async function SingleProg({ params: { id } }: Props) {
 
   const content = (
     <>
-      <div className="mt-24 text white flex flex-row flex-wrap m:max-l:ml-4 ">
+      <BackToHome />
+      <div className=" text white flex flex-row flex-wrap m:max-l:ml-4 ">
         <MovieDetails prog={prog} />
       </div>
       <section className="ml-4">

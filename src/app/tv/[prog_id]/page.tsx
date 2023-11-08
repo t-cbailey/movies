@@ -3,6 +3,7 @@ import TvCardLg from "@/app/components/Tv/TvCardLg";
 import { getCastData, getTvData } from "@/lib/getData";
 import { Credit, Tv } from "@/types";
 import React from "react";
+import BackToHome from "@/app/components/BackToHome";
 
 type Props = { params: { prog_id: string } };
 
@@ -33,7 +34,7 @@ export default async function SingleProg({ params: { prog_id } }: Props) {
 
   const progData = await getTvData(`tv/${id}`, "tv");
   if (!progData) {
-    return <p className="mt-24">Content for id:{id} Not Found</p>;
+    return <p className="">Content for id:{id} Not Found</p>;
   }
 
   const prog: Tv = progData[0];
@@ -41,7 +42,8 @@ export default async function SingleProg({ params: { prog_id } }: Props) {
 
   const content = (
     <>
-      <section className="mt-24 ml-4">
+      <BackToHome />
+      <section className=" ml-4">
         <TvCardLg prog={prog} />
       </section>
       <section className="ml-4">
