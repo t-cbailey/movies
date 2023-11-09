@@ -4,6 +4,7 @@ import { getTvData, getMovieData } from "@/lib/getData";
 import PosterCard from "@/app/components/CarouselItems/PosterCard";
 import { getGenres } from "@/lib/getGenres";
 import Back from "@/app/components/Back";
+import LoadMore from "@/app/components/LoadMore";
 
 type Props = { params: { type: ProgType; name: string } };
 
@@ -40,12 +41,15 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
 
   if (type === "movie") {
     progs = await getMovieData(
-      `/discover/${type}?with_genres=${genreId}`,
+      `/discover/${type}?with_genres=${genreId}&page=1`,
       type
     );
   }
   if (type === "tv") {
-    progs = await getTvData(`/discover/${type}?with_genres=${genreId}`, type);
+    progs = await getTvData(
+      `/discover/${type}?with_genres=${genreId}&page=1`,
+      type
+    );
   }
 
   if (progs) {
@@ -67,6 +71,7 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
               );
             })}
           </ul>
+          <LoadMore genreId={genreId} genreName={genreName} type={type} />
         </section>
       </>
     );
