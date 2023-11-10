@@ -7,7 +7,7 @@ import LoadingSpinner from "./LoadingSpinner";
 
 type Props = { genreId: number; genreName: string; type: ProgType };
 
-export default function LoadMore({ genreId, genreName, type }: Props) {
+export default function LoadMoreProgs({ genreId, genreName, type }: Props) {
   const [progs, setProgs] = React.useState<Movie[]>([]);
   const [page, setPage] = React.useState<number>(2);
 

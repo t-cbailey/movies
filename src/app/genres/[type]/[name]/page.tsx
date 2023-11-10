@@ -4,7 +4,7 @@ import { getTvData, getMovieData } from "@/lib/getData";
 import PosterCard from "@/app/components/CarouselItems/PosterCard";
 import { getGenres } from "@/lib/getGenres";
 import Back from "@/app/components/Back";
-import LoadMore from "@/app/components/LoadMore";
+import LoadMore from "@/app/components/LoadMoreProgs";
 
 type Props = { params: { type: ProgType; name: string } };
 
