@@ -1,21 +1,15 @@
 import { Episode } from "@/types";
 import React from "react";
-import Image from "next/image";
+import EpisodeIMG from "../EpisodeIMG";
 
-type Props = { episode: Episode; imgUrl: string };
+type Props = { episode: Episode };
 
-export default function EpisodeCardSm({ episode, imgUrl }: Props) {
+export default function EpisodeCardSm({ episode }: Props) {
   return (
     <>
       <div className="flex flex-row flex-wrap m-4 w-full">
-        <Image
-          unoptimized={true}
-          className="ml-2 self-center"
-          src={imgUrl}
-          alt={episode.name}
-          width={200}
-          height={113}
-        />
+        <EpisodeIMG episode={episode} />
+
         <section className="m-4 l:w-2/3">
           <div className="flex flex-row flex-wrap items-end">
             <h2 className="text text-3xl font-bold mr-4 ">{episode.name}</h2>

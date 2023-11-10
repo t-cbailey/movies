@@ -1,24 +1,14 @@
 import { Tv } from "@/types";
-import generateImgUrl from "@/utils/images/generateImgUrl";
-import Image from "next/image";
+import ProgIMG from "../ProgIMG";
 import Link from "next/link";
 import React from "react";
 
 type Props = { prog: Tv };
 
 export default function TvCardLg({ prog }: Props) {
-  const imgUrl = generateImgUrl(200, prog.poster_path);
   return (
     <div className="flex m:flex-row m:flex-wrap flex-col place-items-center">
-      <Image
-        unoptimized={true}
-        src={imgUrl}
-        alt={prog.name}
-        width={200}
-        height={300}
-        className="m:ml-2"
-        style={{ width: "200px", height: "300px" }}
-      />
+      <ProgIMG prog={prog} />
       <section className="m-4 m:w-2/3">
         <div className="flex flex-row flex-wrap items-end">
           <h2 className="s:text-center text-6xl font-bold mr-4">{prog.name}</h2>

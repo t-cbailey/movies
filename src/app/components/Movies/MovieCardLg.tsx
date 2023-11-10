@@ -1,24 +1,14 @@
 import React from "react";
 import { Movie } from "@/types";
-import generateImgUrl from "@/utils/images/generateImgUrl";
-import Image from "next/image";
+import ProgIMG from "../ProgIMG";
 import Link from "next/link";
 
 type Props = { prog: Movie };
 
 export default function MovieDetails({ prog }: Props) {
-  const imgUrl = generateImgUrl(200, prog.poster_path);
   return (
     <div className="flex m:flex-row m:flex-wrap flex-col place-items-center">
-      <Image
-        unoptimized={true}
-        className="m:ml-2"
-        src={imgUrl}
-        alt={prog.title}
-        width={200}
-        height={300}
-        style={{ width: "200px", height: "300px" }}
-      />
+      <ProgIMG prog={prog} />
       <section className="m-4 m:w-2/3">
         <div className="flex flex-row flex-wrap items-end">
           <h2 className="text text-6xl font-bold mr-4">{prog.title}</h2>
