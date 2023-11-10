@@ -1,13 +1,11 @@
 import React from "react";
 import { Movie } from "@/types";
-import generateImgUrl from "@/utils/images/generateImgUrl";
 import ProgIMG from "../ProgIMG";
 import Link from "next/link";
 
 type Props = { prog: Movie };
 
 export default function MovieDetails({ prog }: Props) {
-  const imgUrl = generateImgUrl(200, prog.poster_path);
   return (
     <div className="flex m:flex-row m:flex-wrap flex-col place-items-center">
       <ProgIMG prog={prog} />
