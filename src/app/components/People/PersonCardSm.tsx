@@ -3,9 +3,9 @@ import { Credit } from "@/types";
 import PersonIMG from "../PersonIMG";
 import Link from "next/link";
 
-type Props = { person: Credit; imgUrl: string };
+type Props = { person: Credit };
 
-export default function PersonCardSm({ person, imgUrl }: Props) {
+export default function PersonCardSm({ person }: Props) {
   return (
     <>
       <Link href={`/person/${person.id}`}>

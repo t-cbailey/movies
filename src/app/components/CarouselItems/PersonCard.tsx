@@ -1,10 +1,6 @@
 import React from "react";
 import { Person } from "@/types";
-import generateImgUrl from "@/utils/images/generateImgUrl";
-import Image from "next/image";
 import Link from "next/link";
-import fallbackImg from "../../../../public/fallbackImg.png";
-import LoadingSpinner from "../LoadingSpinner";
 import IMG from "../PersonIMG";
 
 type Props = { person: Person };
