@@ -1,24 +1,30 @@
 "use client";
-import React, { ReactHTMLElement } from "react";
+import React from "react";
 import PosterCard from "./CarouselItems/PosterCard";
 import { Movie, ProgType } from "@/types";
-import { useRouter } from "next/navigation";
+
+import LoadingSpinner from "./LoadingSpinner";
 
 type Props = { genreId: number; genreName: string; type: ProgType };
 
-export default async function LoadMore({ genreId, genreName, type }: Props) {
+export default function LoadMore({ genreId, genreName, type }: Props) {
   const [progs, setProgs] = React.useState<Movie[]>([]);
   const [page, setPage] = React.useState<number>(2);
-  const router = useRouter();
 
-  const handleClick = async () => {
-    const res = await fetch(
+  const handleClick = () => {
+    const data = fetch(
       `/api/progData/?genreId=${genreId}&page=${page}&type=${type}`
-    );
-    const data = await res.json();
-    setProgs([...progs, ...data]);
-    setPage(page + 1);
-    router.refresh();
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setProgs(progs.concat(...data));
+        setPage(page + 1);
+      })
+      .catch((err) => {
+        console.error;
+      });
   };
 
   return (

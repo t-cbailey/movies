@@ -71,8 +71,8 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
               );
             })}
           </ul>
-          <LoadMore genreId={genreId} genreName={genreName} type={type} />
         </section>
+        <LoadMore genreId={genreId} genreName={genreName} type={type} />
       </>
     );
   }
