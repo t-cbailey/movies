@@ -22,5 +22,8 @@ export async function GET(request: Request) {
     );
   }
 
+  if (!progs) {
+    return Response.json({});
+  }
   return Response.json(progs);
 }
