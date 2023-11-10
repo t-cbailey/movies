@@ -4,6 +4,7 @@ import { getTvData, getMovieData } from "@/lib/getData";
 import PosterCard from "@/app/components/CarouselItems/PosterCard";
 import { getGenres } from "@/lib/getGenres";
 import Back from "@/app/components/Back";
+import LoadMore from "@/app/components/LoadMoreProgs";
 
 type Props = { params: { type: ProgType; name: string } };
 
@@ -15,6 +16,7 @@ const revalidate = 86000;
 
 export async function generateStaticParams() {
   const data = await getGenres();
+
   const mixedGenres = [...data.movie, ...data.tv];
   return mixedGenres.map((genre) => ({
     name: genre.name,
@@ -40,12 +42,15 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
 
   if (type === "movie") {
     progs = await getMovieData(
-      `/discover/${type}?with_genres=${genreId}`,
+      `/discover/${type}?with_genres=${genreId}&page=1`,
       type
     );
   }
   if (type === "tv") {
-    progs = await getTvData(`/discover/${type}?with_genres=${genreId}`, type);
+    progs = await getTvData(
+      `/discover/${type}?with_genres=${genreId}&page=1`,
+      type
+    );
   }
 
   if (progs) {
@@ -68,6 +73,7 @@ export default async function PageByGenre({ params: { type, name } }: Props) {
             })}
           </ul>
         </section>
+        <LoadMore genreId={genreId} genreName={genreName} type={type} />
       </>
     );
   }
