@@ -16,6 +16,7 @@ const revalidate = 86000;
 
 export async function generateStaticParams() {
   const data = await getGenres();
+  if (!data) return <h2>No Content</h2>;
   const mixedGenres = [...data.movie, ...data.tv];
   return mixedGenres.map((genre) => ({
     name: genre.name,
