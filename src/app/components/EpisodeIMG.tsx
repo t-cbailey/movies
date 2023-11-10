@@ -1,24 +1,24 @@
 "use client";
 import React from "react";
-import fallbackImg from "../../../public/fallbackImg.png";
+import fallbackImgSM from "../../../public/fallbackImgSM.png";
 import LoadingSpinner from "./LoadingSpinner";
 import generateImgUrl from "@/utils/images/generateImgUrl";
 import Image from "next/image";
-import { Tv, Movie, Credit, Season, Episode } from "@/types";
+import { Episode } from "@/types";
 
-type Props = { prog: Tv | Movie | Credit | Season };
+type Props = { episode: Episode };
 
-export default function ProgIMG({ prog }: Props) {
+export default function EpisodeIMG({ episode }: Props) {
   const [loading, setLoading] = React.useState(true);
   const [error, setError]: any = React.useState(null);
 
   let imgUrl = "";
 
-  if (prog.poster_path) {
-    imgUrl = generateImgUrl(200, prog.poster_path);
-  } else imgUrl = "/../../../../public/fallbackImg.png";
+  if (episode.still_path) {
+    imgUrl = generateImgUrl(200, episode.still_path);
+  } else imgUrl = "/../../../../public/fallbackImgSM.png";
 
-  const fallback = fallbackImg,
+  const fallback = fallbackImgSM,
     alt = "personImg",
     src = imgUrl;
 
@@ -31,7 +31,7 @@ export default function ProgIMG({ prog }: Props) {
   }, [src]);
   return (
     <>
-      <div className="max-w-full h-auto relative m-2">
+      <div className="w-[200px] h-[113px] relative m-2">
         {loading && <LoadingSpinner />}
         <Image
           unoptimized={true}
@@ -39,13 +39,11 @@ export default function ProgIMG({ prog }: Props) {
           src={error ? fallback : src}
           alt={alt}
           width={200}
-          height={300}
+          height={113}
           onLoad={onImageLoad}
           style={{
             zIndex: 1,
             position: "relative",
-            width: "200px",
-            height: "auto",
           }}
         />
       </div>
