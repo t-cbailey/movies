@@ -16,12 +16,11 @@ const revalidate = 86000;
 
 export async function generateStaticParams() {
   const data = await getGenres();
-  if (data) {
-    const mixedGenres = [...data.movie, ...data.tv];
-    return mixedGenres.map((genre) => ({
-      name: genre.name,
-    }));
-  }
+
+  const mixedGenres = [...data.movie, ...data.tv];
+  return mixedGenres.map((genre) => ({
+    name: genre.name,
+  }));
 }
 
 export default async function PageByGenre({ params: { type, name } }: Props) {
