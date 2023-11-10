@@ -4,9 +4,9 @@ import fallbackImg from "../../../public/fallbackImg.png";
 import LoadingSpinner from "./LoadingSpinner";
 import generateImgUrl from "@/utils/images/generateImgUrl";
 import Image from "next/image";
-import { Tv, Movie, Credit } from "@/types";
+import { Tv, Movie, Credit, Season } from "@/types";
 
-type Props = { prog: Tv | Movie | Credit };
+type Props = { prog: Tv | Movie | Credit | Season };
 
 export default function ProgIMG({ prog }: Props) {
   const [loading, setLoading] = React.useState(true);
